@@ -414,14 +414,14 @@ __riscv_mulqr_i32(int32_t __rs1, int32_t __rs2) {
 
 #if __riscv_xlen == 32
 static __inline__ uint32_t __DEFAULT_FN_ATTRS
-__riscv_slx_u32(uint32_t __rd, uint32_t __rs1, unsigned __shamt) {
+__riscv_slx_32(uint32_t __rd, uint32_t __rs1, unsigned __shamt) {
   uint32_t __result = __rd;
   __asm__("slx %0, %1, %2" : "+r"(__result) : "r"(__rs1), "r"(__shamt));
   return __result;
 }
 
 static __inline__ uint32_t __DEFAULT_FN_ATTRS
-__riscv_srx_u32(uint32_t __rd, uint32_t __rs1, unsigned __shamt) {
+__riscv_srx_32(uint32_t __rd, uint32_t __rs1, unsigned __shamt) {
   uint32_t __result = __rd;
   __asm__("srx %0, %1, %2" : "+r"(__result) : "r"(__rs1), "r"(__shamt));
   return __result;
@@ -474,14 +474,14 @@ __riscv_msgtu_u32(uint32_t __rs1, uint32_t __rs2) {
 // RV32 Only Scalar Intrinsics (with 64-bit integers using "R" constraint)
 
 static __inline__ uint64_t __DEFAULT_FN_ATTRS
-__riscv_wzip8p_u64(uint32_t __rs1, uint32_t __rs2) {
+__riscv_wzip8p_64(uint32_t __rs1, uint32_t __rs2) {
   uint64_t __result;
   __asm__("wzip8p %0, %1, %2" : "=R"(__result) : "r"(__rs1), "r"(__rs2));
   return __result;
 }
 
 static __inline__ uint64_t __DEFAULT_FN_ATTRS
-__riscv_wzip16p_u64(uint32_t __rs1, uint32_t __rs2) {
+__riscv_wzip16p_64(uint32_t __rs1, uint32_t __rs2) {
   uint64_t __result;
   __asm__("wzip16p %0, %1, %2" : "=R"(__result) : "r"(__rs1), "r"(__rs2));
   return __result;
@@ -648,7 +648,7 @@ __riscv_rev_64(uint64_t __rs1) {
 }
 
 static __inline__ uint64_t __DEFAULT_FN_ATTRS
-__riscv_rev16_u64(uint64_t __rs1) {
+__riscv_rev16_64(uint64_t __rs1) {
   uint64_t __result;
   __asm__("rev16 %0, %1" : "=r"(__result) : "r"(__rs1));
   return __result;
@@ -690,70 +690,70 @@ __riscv_shar_i64(int64_t __rs1, int __rs2) {
   })
 
 static __inline__ uint64_t __DEFAULT_FN_ATTRS
-__riscv_slx_u64(uint64_t __rd, uint64_t __rs1, unsigned __shamt) {
+__riscv_slx_64(uint64_t __rd, uint64_t __rs1, unsigned __shamt) {
   uint64_t __result = __rd;
   __asm__("slx %0, %1, %2" : "+r"(__result) : "r"(__rs1), "r"(__shamt));
   return __result;
 }
 
 static __inline__ uint64_t __DEFAULT_FN_ATTRS
-__riscv_srx_u64(uint64_t __rd, uint64_t __rs1, unsigned __shamt) {
+__riscv_srx_64(uint64_t __rd, uint64_t __rs1, unsigned __shamt) {
   uint64_t __result = __rd;
   __asm__("srx %0, %1, %2" : "+r"(__result) : "r"(__rs1), "r"(__shamt));
   return __result;
 }
 
 static __inline__ uint64_t __DEFAULT_FN_ATTRS
-__riscv_unzip8p_u64(uint64_t __rs1, uint64_t __rs2) {
+__riscv_unzip8p_64(uint64_t __rs1, uint64_t __rs2) {
   uint64_t __result;
   __asm__("unzip8p %0, %1, %2" : "=r"(__result) : "r"(__rs1), "r"(__rs2));
   return __result;
 }
 
 static __inline__ uint64_t __DEFAULT_FN_ATTRS
-__riscv_unzip16p_u64(uint64_t __rs1, uint64_t __rs2) {
+__riscv_unzip16p_64(uint64_t __rs1, uint64_t __rs2) {
   uint64_t __result;
   __asm__("unzip16p %0, %1, %2" : "=r"(__result) : "r"(__rs1), "r"(__rs2));
   return __result;
 }
 
 static __inline__ uint64_t __DEFAULT_FN_ATTRS
-__riscv_unzip8hp_u64(uint64_t __rs1, uint64_t __rs2) {
+__riscv_unzip8hp_64(uint64_t __rs1, uint64_t __rs2) {
   uint64_t __result;
   __asm__("unzip8hp %0, %1, %2" : "=r"(__result) : "r"(__rs1), "r"(__rs2));
   return __result;
 }
 
 static __inline__ uint64_t __DEFAULT_FN_ATTRS
-__riscv_unzip16hp_u64(uint64_t __rs1, uint64_t __rs2) {
+__riscv_unzip16hp_64(uint64_t __rs1, uint64_t __rs2) {
   uint64_t __result;
   __asm__("unzip16hp %0, %1, %2" : "=r"(__result) : "r"(__rs1), "r"(__rs2));
   return __result;
 }
 
 static __inline__ uint64_t __DEFAULT_FN_ATTRS
-__riscv_zip8p_u64(uint64_t __rs1, uint64_t __rs2) {
+__riscv_zip8p_64(uint64_t __rs1, uint64_t __rs2) {
   uint64_t __result;
   __asm__("zip8p %0, %1, %2" : "=r"(__result) : "r"(__rs1), "r"(__rs2));
   return __result;
 }
 
 static __inline__ uint64_t __DEFAULT_FN_ATTRS
-__riscv_zip16p_u64(uint64_t __rs1, uint64_t __rs2) {
+__riscv_zip16p_64(uint64_t __rs1, uint64_t __rs2) {
   uint64_t __result;
   __asm__("zip16p %0, %1, %2" : "=r"(__result) : "r"(__rs1), "r"(__rs2));
   return __result;
 }
 
 static __inline__ uint64_t __DEFAULT_FN_ATTRS
-__riscv_zip8hp_u64(uint64_t __rs1, uint64_t __rs2) {
+__riscv_zip8hp_64(uint64_t __rs1, uint64_t __rs2) {
   uint64_t __result;
   __asm__("zip8hp %0, %1, %2" : "=r"(__result) : "r"(__rs1), "r"(__rs2));
   return __result;
 }
 
 static __inline__ uint64_t __DEFAULT_FN_ATTRS
-__riscv_zip16hp_u64(uint64_t __rs1, uint64_t __rs2) {
+__riscv_zip16hp_64(uint64_t __rs1, uint64_t __rs2) {
   uint64_t __result;
   __asm__("zip16hp %0, %1, %2" : "=r"(__result) : "r"(__rs1), "r"(__rs2));
   return __result;

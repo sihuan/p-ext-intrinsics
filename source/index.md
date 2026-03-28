@@ -54,10 +54,10 @@ The RISC-V P Extension C intrinsics provide users interface in the C language le
 
 | Prototype                                                              | Instruction                     | Notes                         |
 |------------------------------------------------------------------------|---------------------------------|-------------------------------|
-| `uint32_t __riscv_slx_u32(uint32_t rd, uint32_t rs1, unsigned shamt);` | `slx`                           |                               |
-| `uint32_t __riscv_srx_u32(uint32_t rd, uint32_t rs1, unsigned shamt);` | `srx`                           |                               |
-| `uint64_t __riscv_wzip8p_u64(uint32_t rs1, uint32_t rs2);`             | `wzip8p`                        |                               |
-| `uint64_t __riscv_wzip16p_u64(uint32_t rs1, uint32_t rs2);`            | `wzip16p`                       |                               |
+| `uint32_t __riscv_slx_32(uint32_t rd, uint32_t rs1, unsigned shamt);`  | `slx`                           |                               |
+| `uint32_t __riscv_srx_32(uint32_t rd, uint32_t rs1, unsigned shamt);`  | `srx`                           |                               |
+| `uint64_t __riscv_wzip8p_64(uint32_t rs1, uint32_t rs2);`              | `wzip8p`                        |                               |
+| `uint64_t __riscv_wzip16p_64(uint32_t rs1, uint32_t rs2);`             | `wzip16p`                       |                               |
 | `int64_t __riscv_mqwacc_i64(int64_t rd, int32_t rs1, int32_t rs2);`    | `mqwacc`                        |                               |
 | `int64_t __riscv_mqrwacc_i64(int64_t rd, int32_t rs1, int32_t rs2);`   | `mqrwacc`                       |                               |
 | `uint32_t __riscv_nclipu_u32(uint64_t rs1_p, uint32_t rs2);`           | `nclip[i]u`                     |                               |
@@ -84,22 +84,22 @@ The RISC-V P Extension C intrinsics provide users interface in the C language le
 | `uint64_t __riscv_abs_u64(int64_t rs1);`                               | `abs`                       |
 | `unsigned __riscv_cls_64(int64_t rs1);`                                | `cls`                       |
 | `uint64_t __riscv_rev_64(uint64_t rs1);`                               | `rev`                       |
-| `uint64_t __riscv_rev16_u64(uint64_t rs1);`                            | `rev16`                     |
+| `uint64_t __riscv_rev16_64(uint64_t rs1);`                             | `rev16`                     |
 | `int64_t __riscv_sha_i64(int64_t rs1, int rs2);`                       | `sha`                       |
 | `int64_t __riscv_shar_i64(int64_t rs1, int rs2);`                      | `shar`                      |
 | `uint64_t __riscv_usati_u64(int64_t rs1, const unsigned shamt);`       | `usati`                     |
 | `int64_t __riscv_srari_i64(int64_t rs1, const unsigned shamt);`        | `srari`                     |
 | `int64_t __riscv_sati_i64(int64_t rs1, const unsigned shamt);`         | `sati`                      |
-| `uint64_t __riscv_slx_u64(uint64_t rd, uint64_t rs1, unsigned shamt);` | `slx`                       |
-| `uint64_t __riscv_srx_u64(uint64_t rd, uint64_t rs1, unsigned shamt);` | `srx`                       |
-| `uint64_t __riscv_unzip8p_u64(uint64_t rs1, uint64_t rs2);`            | `unzip8p`                   |
-| `uint64_t __riscv_unzip16p_u64(uint64_t rs1, uint64_t rs2);`           | `unzip16p`                  |
-| `uint64_t __riscv_unzip8hp_u64(uint64_t rs1, uint64_t rs2);`           | `unzip8hp`                  |
-| `uint64_t __riscv_unzip16hp_u64(uint64_t rs1, uint64_t rs2);`          | `unzip16hp`                 |
-| `uint64_t __riscv_zip8p_u64(uint64_t rs1, uint64_t rs2);`              | `zip8p`                     |
-| `uint64_t __riscv_zip16p_u64(uint64_t rs1, uint64_t rs2);`             | `zip16p`                    |
-| `uint64_t __riscv_zip8hp_u64(uint64_t rs1, uint64_t rs2);`             | `zip8hp`                    |
-| `uint64_t __riscv_zip16hp_u64(uint64_t rs1, uint64_t rs2);`            | `zip16hp`                   |
+| `uint64_t __riscv_slx_64(uint64_t rd, uint64_t rs1, unsigned shamt);`  | `slx`                       |
+| `uint64_t __riscv_srx_64(uint64_t rd, uint64_t rs1, unsigned shamt);`  | `srx`                       |
+| `uint64_t __riscv_unzip8p_64(uint64_t rs1, uint64_t rs2);`             | `unzip8p`                   |
+| `uint64_t __riscv_unzip16p_64(uint64_t rs1, uint64_t rs2);`            | `unzip16p`                  |
+| `uint64_t __riscv_unzip8hp_64(uint64_t rs1, uint64_t rs2);`            | `unzip8hp`                  |
+| `uint64_t __riscv_unzip16hp_64(uint64_t rs1, uint64_t rs2);`           | `unzip16hp`                 |
+| `uint64_t __riscv_zip8p_64(uint64_t rs1, uint64_t rs2);`               | `zip8p`                     |
+| `uint64_t __riscv_zip16p_64(uint64_t rs1, uint64_t rs2);`              | `zip16p`                    |
+| `uint64_t __riscv_zip8hp_64(uint64_t rs1, uint64_t rs2);`              | `zip8hp`                    |
+| `uint64_t __riscv_zip16hp_64(uint64_t rs1, uint64_t rs2);`             | `zip16hp`                   |
 
 ## Packed SIMD Types
 
