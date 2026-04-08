@@ -48,9 +48,19 @@ The RISC-V P Extension C intrinsics provide users interface in the C language le
 | `int32_t __riscv_mhraccsu_i32(int32_t rd, int32_t rs1, uint32_t rs2);`   | `mhraccsu`(RV32), `pmhraccsu.w`(RV64) |                                                    |
 | `int32_t __riscv_mulq_i32(int32_t rs1, int32_t rs2);`                    | `mulq`(RV32), `pmulq.w`(RV64)         |                                                    |
 | `int32_t __riscv_mulqr_i32(int32_t rs1, int32_t rs2);`                   | `mulqr`(RV32), `pmulqr.w`(RV64)       |                                                    |
+| `int64_t __riscv_mqwacc_i64(int64_t rd, int32_t rs1, int32_t rs2);`      | `mqwacc`(RV32), `mqacc.w00`(RV64)     |                                                    |
+| `int64_t __riscv_mqrwacc_i64(int64_t rd, int32_t rs1, int32_t rs2);`     | `mqrwacc`(RV32), mqracc.w00`(RV64)    |                                                    |
+| `uint32_t __riscv_mseq_i32(int32_t rs1, int32_t rs2);`                   | `mseq`(RV32), `pmseq.w`(RV64)         |                                                    |
+| `uint32_t __riscv_mseq_u32(uint32_t rs1, uint32_t rs2);`                 | `mseq`(RV32), `pmseq.w`(RV64)         |                                                    |
+| `uint32_t __riscv_mslt_i32(int32_t rs1, int32_t rs2);`                   | `mslt`(RV32), `pmslt.w`(RV64)         |                                                    |
+| `uint32_t __riscv_msgt_i32(int32_t rs1, int32_t rs2);`                   | `mslt`(RV32), `pmslt.w`(RV64)         | Swap operands and use pmslt                        |
+| `uint32_t __riscv_msltu_u32(uint32_t rs1, uint32_t rs2);`                | `msltu`(RV32), `pmsltu.w`(RV64)       |                                                    |
+| `uint32_t __riscv_msgtu_u32(uint32_t rs1, uint32_t rs2);`                | `msltu`(RV32), `pmsltu.w`(RV64)       | Swap operands and use pmsltu                       |
 
 * TODO: Do we need intrinsics for MERGE?
 * TODO: How to handle VXSAT?
+* TODO: Do we need intrinsics for ADDD or SUBD? Or can compiler figure it out?
+* TODO: mseq/mslt/etc return unsigned type but take signed/unsigned input types. Should we list both types?
 
 ### RV32 Only Scalar Intrinsics
 
@@ -60,22 +70,13 @@ The RISC-V P Extension C intrinsics provide users interface in the C language le
 | `uint32_t __riscv_srx_32(uint32_t rd, uint32_t rs1, unsigned shamt);`  | `srx`                           |                               |
 | `uint64_t __riscv_wzip8p_64(uint32_t rs1, uint32_t rs2);`              | `wzip8p`                        |                               |
 | `uint64_t __riscv_wzip16p_64(uint32_t rs1, uint32_t rs2);`             | `wzip16p`                       |                               |
-| `int64_t __riscv_mqwacc_i64(int64_t rd, int32_t rs1, int32_t rs2);`    | `mqwacc`                        |                               |
-| `int64_t __riscv_mqrwacc_i64(int64_t rd, int32_t rs1, int32_t rs2);`   | `mqrwacc`                       |                               |
 | `uint32_t __riscv_nclipu_u32(uint64_t rs1_p, uint32_t rs2);`           | `nclip[i]u`                     |                               |
 | `uint32_t __riscv_nclipru_u32(uint64_t rs1_p, uint32_t rs2);`          | `nclipr[i]u`                    |                               |
 | `int32_t __riscv_nsrar_i32(int64_t rs1_p, uint32_t rs2);`              | `nsrar[i]`                      |                               |
 | `int32_t __riscv_nclip_i32(int64_t rs1_p, uint32_t rs2);`              | `nclip[i]`                      |                               |
 | `int32_t __riscv_nclipr_i32(int64_t rs1_p, uint32_t rs2);`             | `nclipr[i]`                     |                               |
-| `uint32_t __riscv_mseq_i32(int32_t rs1, int32_t rs2);`                 | `mseq`(RV32), `pmseq.w`(RV64)   |                               |
-| `uint32_t __riscv_mseq_u32(uint32_t rs1, uint32_t rs2);`               | `mseq`(RV32), `pmseq.w`(RV64)   |                               |
-| `uint32_t __riscv_mslt_i32(int32_t rs1, int32_t rs2);`                 | `mslt`(RV32), `pmslt.w`(RV64)   |                               |
-| `uint32_t __riscv_msgt_i32(int32_t rs1, int32_t rs2);`                 | `mslt`(RV32), `pmslt.w`(RV64)   | Swap operands and use pmslt   |
-| `uint32_t __riscv_msltu_u32(uint32_t rs1, uint32_t rs2);`              | `msltu`(RV32), `pmsltu.w`(RV64) |                               |
-| `uint32_t __riscv_msgtu_u32(uint32_t rs1, uint32_t rs2);`              | `msltu`(RV32), `pmsltu.w`(RV64) | Swap operands and use pmsltu  |
 
 * TODO: Do we need intrinsics for ADDD or SUBD? Or can compiler figure it out?
-* TODO: mseq/mslt/etc return unsigned type but take signed/unsigned input types. Should we list both types?
 
 ### RV64 Only Scalar Intrinsics
 
@@ -89,8 +90,8 @@ The RISC-V P Extension C intrinsics provide users interface in the C language le
 | `uint64_t __riscv_rev16_64(uint64_t rs1);`                             | `rev16`                     |
 | `int64_t __riscv_sha_i64(int64_t rs1, int rs2);`                       | `sha`                       |
 | `int64_t __riscv_shar_i64(int64_t rs1, int rs2);`                      | `shar`                      |
-| `uint64_t __riscv_shl_u64(uint64_t rs1, int rs2);`                      | `shl`                       |
-| `uint64_t __riscv_shlr_u64(uint64_t rs1, int rs2);`                     | `shlr`                      |
+| `uint64_t __riscv_shl_u64(uint64_t rs1, int rs2);`                     | `shl`                       |
+| `uint64_t __riscv_shlr_u64(uint64_t rs1, int rs2);`                    | `shlr`                      |
 | `uint64_t __riscv_usati_u64(int64_t rs1, const unsigned shamt);`       | `usati`                     |
 | `int64_t __riscv_srari_i64(int64_t rs1, const unsigned shamt);`        | `srari`                     |
 | `int64_t __riscv_sati_i64(int64_t rs1, const unsigned shamt);`         | `sati`                      |
@@ -1141,35 +1142,35 @@ These are convenience functions to allow bitwise and/or/xor/not on packed vector
 
 ### Packed Widening Multiply
 
-### 32-bit (RV32 Only)
+### 32-bit
 
-| Prototype                                                          | Instruction |
-|--------------------------------------------------------------------|-------------|
-| `int16x4_t __riscv_pwmul_i16x4(int8x4_t rs1, int8x4_t rs2);`       | `pwmul.b`   |
-| `int32x2_t __riscv_pwmul_i32x2(int16x2_t rs1, int16x2_t rs2);`     | `pwmul.h`   |
-| `uint16x4_t __riscv_pwmulu_u16x4(uint8x4_t rs1, uint8x4_t rs2);`   | `pwmulu.b`  |
-| `uint32x2_t __riscv_pwmulu_u32x2(uint16x2_t rs1, uint16x2_t rs2);` | `pwmulu.h`  |
-| `int16x4_t __riscv_pwmulsu_u16x4(int8x4_t rs1, uint8x4_t rs2);`    | `pwmulsu.b` |
-| `int32x2_t __riscv_pwmulsu_u32x2(int16x2_t rs1, uint16x2_t rs2);`  | `pwmulsu.h` |
+| Prototype                                                          | Instruction                                      |
+|--------------------------------------------------------------------|--------------------------------------------------|
+| `int16x4_t __riscv_pwmul_i16x4(int8x4_t rs1, int8x4_t rs2);`       | `pwmul.b`(RV32), `zip8p`+`pmul.h.b01`(RV64)      |
+| `int32x2_t __riscv_pwmul_i32x2(int16x2_t rs1, int16x2_t rs2);`     | `pwmul.h`(RV32), `zip16p`+`pmul.w.h01`(RV64)     |
+| `uint16x4_t __riscv_pwmulu_u16x4(uint8x4_t rs1, uint8x4_t rs2);`   | `pwmulu.b`(RV32), `zip8p`+`pmulu.h.b01`(RV64)    |
+| `uint32x2_t __riscv_pwmulu_u32x2(uint16x2_t rs1, uint16x2_t rs2);` | `pwmulu.h`(RV32), `zip16p`+`pmulu.w.h01`(RV64)   |
+| `int16x4_t __riscv_pwmulsu_u16x4(int8x4_t rs1, uint8x4_t rs2);`    | `pwmulsu.b`(RV32), `zip8p`+`pmulsu.h.b01`(RV64)  |
+| `int32x2_t __riscv_pwmulsu_u32x2(int16x2_t rs1, uint16x2_t rs2);`  | `pwmulsu.h`(RV32), `zip16p`+`pmulsu.w.h01`(RV64) |
 
 ### Packed Widening Multiply Accmulate
 
-#### 32-bit (RV32 Only)
+#### 32-bit
 
-| Prototype                                                                          | Instruction  |
-|------------------------------------------------------------------------------------|--------------|
-| `int32x2_t __riscv_pwmacc_i32x2(int32x2_t rd, int16x2_t rs1, int16x2_t rs2);`      | `pwmacc.h`   |
-| `uint32x2_t __riscv_pwmaccu_u32x2(uint32x2_t rd, uint16x2_t rs1, uint16x2_t rs2);` | `pwmaccu.h`  |
-| `int32x2_t __riscv_pwmaccsu_u32x2(int32x2_t rd, int16x2_t rs1, uint16x2_t rs2);`   | `pwmaccsu.h` |
+| Prototype                                                                          | Instruction                                        |
+|------------------------------------------------------------------------------------|----------------------------------------------------|
+| `int32x2_t __riscv_pwmacc_i32x2(int32x2_t rd, int16x2_t rs1, int16x2_t rs2);`      | `pwmacc.h`(RV32), `zip16p`+`pmacc.w.h01`(RV64)     |
+| `uint32x2_t __riscv_pwmaccu_u32x2(uint32x2_t rd, uint16x2_t rs1, uint16x2_t rs2);` | `pwmaccu.h`(RV32), `zip16p`+`pmaccu.w.h01`(RV64)   |
+| `int32x2_t __riscv_pwmaccsu_u32x2(int32x2_t rd, int16x2_t rs1, uint16x2_t rs2);`   | `pwmaccsu.h`(RV32), `zip16p`+`pmaccsu.w.h01`(RV64) |
 
 ### Packed "Q-format" Multiply with Widening Accumulate
 
-#### 32-bit (RV32 Only)
+#### 32-bit
 
-| Prototype                                                                       | Instruction  |
-|---------------------------------------------------------------------------------|--------------|
-| `int32x2_t __riscv_pmqwacc_i16x2(int32x2_t rd, int16x2_t rs1, int16x2_t rs2);`  | `pmqwacc.h`  |
-| `int32x2_t __riscv_pmqrwacc_i16x2(int32x2_t rd, int16x2_t rs1, int16x2_t rs2);` | `pmqrwacc.h` |
+| Prototype                                                                       | Instruction                                        |
+|---------------------------------------------------------------------------------|----------------------------------------------------|
+| `int32x2_t __riscv_pmqwacc_i32x2(int32x2_t rd, int16x2_t rs1, int16x2_t rs2);`  | `pmqwacc.h`(RV32), `zip16p`+`pmqacc.w.h01`(RV64)   |
+| `int32x2_t __riscv_pmqrwacc_i32x2(int32x2_t rd, int16x2_t rs1, int16x2_t rs2);` | `pmqrwacc.h`(RV32), `zip16p`+`pmqracc.w.h01`(RV64) |
 
 ### Packed Widening Shift
 
@@ -1206,22 +1207,22 @@ These are convenience functions to allow bitwise and/or/xor/not on packed vector
 
 ### Packed Multiplication with Widening Horizontal Addition
 
-#### 32-bit (RV32 Only)
+#### 32-bit
 
-| Prototype                                                                      | Instruction    |
-|--------------------------------------------------------------------------------|----------------|
-| `int64_t __riscv_pm2wadd_i64(int16x2_t rs1, int16x2_t rs2);`                   | `pm2wadd.h`    |
-| `int64_t __riscv_pm2wadda_i64(int64_t rd, int16x2_t rs1, int16x2_t rs2);`      | `pm2wadda.h`   |
-| `int64_t __riscv_pm2wadd_x_i64(int16x2_t rs1, int16x2_t rs2);`                 | `pm2wadd.hx`   |
-| `int64_t __riscv_pm2wadda_x_i64(int64_t rd, int16x2_t rs1, int16x2_t rs2);`    | `pm2wadda.hx`  |
-| `uint64_t __riscv_pm2waddu_u64(uint16x2_t rs1, uint16x2_t rs2);`               | `pm2waddu.h`   |
-| `uint64_t __riscv_pm2waddau_u64(uint64_t rd, uint16x2_t rs1, uint16x2_t rs2);` | `pm2waddau.h`  |
-| `int64_t __riscv_pm2wsub_i64(int16x2_t rs1, int16x2_t rs2);`                   | `pm2wsub.h`    |
-| `int64_t __riscv_pm2wsuba_i64(int64_t rd, int16x2_t rs1, int16x2_t rs2);`      | `pm2wsuba.h`   |
-| `int64_t __riscv_pm2wsub_x_i64(int16x2_t rs1, int16x2_t rs2);`                 | `pm2wsub.hx`   |
-| `int64_t __riscv_pm2wsuba_x_i64(int64_t rd, int16x2_t rs1, int16x2_t rs2);`    | `pm2wsuba.hx`  |
-| `int64_t __riscv_pm2waddsu_u64(int16x2_t rs1, uint16x2_t rs2);`                | `pm2waddsu.h`  |
-| `int64_t __riscv_pm2waddasu_u64(int64_t rd, int16x2_t rs1, uint16x2_t rs2);`   | `pm2waddasu.h` |
+| Prototype                                                                      | Instruction                                                  |
+|--------------------------------------------------------------------------------|--------------------------------------------------------------|
+| `int64_t __riscv_pm2wadd_i64(int16x2_t rs1, int16x2_t rs2);`                   | `pm2wadd.h`(RV32), `zext.w`+`pm4add.h`(RV64)                 |
+| `int64_t __riscv_pm2wadda_i64(int64_t rd, int16x2_t rs1, int16x2_t rs2);`      | `pm2wadda.h`(RV32), `zext.w`+`pm4adda.h`(RV64)               |
+| `int64_t __riscv_pm2wadd_x_i64(int16x2_t rs1, int16x2_t rs2);`                 | `pm2wadd.hx`(RV32), `zext.w`+`ppairoe.h`+`pm4add.h`(RV64)    |
+| `int64_t __riscv_pm2wadda_x_i64(int64_t rd, int16x2_t rs1, int16x2_t rs2);`    | `pm2wadda.hx`(RV32), `zext.w`+`pairoe.h`+`pm4adda.h`(RV64)   |
+| `uint64_t __riscv_pm2waddu_u64(uint16x2_t rs1, uint16x2_t rs2);`               | `pm2waddu.h`(RV32), `zext.w`+`pm4addu.h`(RV64)               |
+| `uint64_t __riscv_pm2waddau_u64(uint64_t rd, uint16x2_t rs1, uint16x2_t rs2);` | `pm2waddau.h`(RV32), `zext.w`+`pm4addau.h`(RV64)             |
+| `int64_t __riscv_pm2wsub_i64(int16x2_t rs1, int16x2_t rs2);`                   | `pm2wsub.h`(RV32), `pm2sub.h`+`sext.w`(RV64)                 |
+| `int64_t __riscv_pm2wsuba_i64(int64_t rd, int16x2_t rs1, int16x2_t rs2);`      | `pm2wsuba.h`(RV32), `zext.w`+`pm2sub.h`+`predsum.ws`(RV64)   |
+| `int64_t __riscv_pm2wsub_x_i64(int16x2_t rs1, int16x2_t rs2);`                 | `pm2wsub.hx`(RV32), `pm2sub.hx`+`sext.w`(RV64)               |
+| `int64_t __riscv_pm2wsuba_x_i64(int64_t rd, int16x2_t rs1, int16x2_t rs2);`    | `pm2wsuba.hx`(RV32), `zext.w`+`pm2sub.hx`+`predsum.ws`(RV64) |
+| `int64_t __riscv_pm2waddsu_u64(int16x2_t rs1, uint16x2_t rs2);`                | `pm2waddsu.h`(RV32), `zext.w`+`pm4addsu.h`(RV64)             |
+| `int64_t __riscv_pm2waddasu_u64(int64_t rd, int16x2_t rs1, uint16x2_t rs2);`   | `pm2waddasu.h`(RV32), `zext.w`+`pm4addasu.h`(RV64)           |
 
 ### Packed Widening Convert
 
