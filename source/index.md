@@ -49,7 +49,7 @@ The RISC-V P Extension C intrinsics provide users interface in the C language le
 | `int32_t __riscv_mulq_i32(int32_t rs1, int32_t rs2);`                    | `mulq`(RV32), `pmulq.w`(RV64)         |                                                    |
 | `int32_t __riscv_mulqr_i32(int32_t rs1, int32_t rs2);`                   | `mulqr`(RV32), `pmulqr.w`(RV64)       |                                                    |
 | `int64_t __riscv_mqwacc_i64(int64_t rd, int32_t rs1, int32_t rs2);`      | `mqwacc`(RV32), `mqacc.w00`(RV64)     |                                                    |
-| `int64_t __riscv_mqrwacc_i64(int64_t rd, int32_t rs1, int32_t rs2);`     | `mqrwacc`(RV32), mqracc.w00`(RV64)    |                                                    |
+| `int64_t __riscv_mqrwacc_i64(int64_t rd, int32_t rs1, int32_t rs2);`     | `mqrwacc`(RV32), `mqracc.w00`(RV64)   |                                                    |
 | `uint32_t __riscv_mseq_i32(int32_t rs1, int32_t rs2);`                   | `mseq`(RV32), `pmseq.w`(RV64)         |                                                    |
 | `uint32_t __riscv_mseq_u32(uint32_t rs1, uint32_t rs2);`                 | `mseq`(RV32), `pmseq.w`(RV64)         |                                                    |
 | `uint32_t __riscv_mslt_i32(int32_t rs1, int32_t rs2);`                   | `mslt`(RV32), `pmslt.w`(RV64)         |                                                    |
