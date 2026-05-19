@@ -1155,14 +1155,14 @@ These are convenience functions to allow bitwise and/or/xor/not on packed vector
 
 ### 32-bit
 
-| Prototype                                                          | Instruction                                      |
-|--------------------------------------------------------------------|--------------------------------------------------|
-| `int16x4_t __riscv_pwmul_i16x4(int8x4_t rs1, int8x4_t rs2);`       | `pwmul.b`(RV32), `zip8p`+`pmul.h.b01`(RV64)      |
-| `int32x2_t __riscv_pwmul_i32x2(int16x2_t rs1, int16x2_t rs2);`     | `pwmul.h`(RV32), `zip16p`+`pmul.w.h01`(RV64)     |
-| `uint16x4_t __riscv_pwmulu_u16x4(uint8x4_t rs1, uint8x4_t rs2);`   | `pwmulu.b`(RV32), `zip8p`+`pmulu.h.b01`(RV64)    |
-| `uint32x2_t __riscv_pwmulu_u32x2(uint16x2_t rs1, uint16x2_t rs2);` | `pwmulu.h`(RV32), `zip16p`+`pmulu.w.h01`(RV64)   |
-| `int16x4_t __riscv_pwmulsu_u16x4(int8x4_t rs1, uint8x4_t rs2);`    | `pwmulsu.b`(RV32), `zip8p`+`pmulsu.h.b01`(RV64)  |
-| `int32x2_t __riscv_pwmulsu_u32x2(int16x2_t rs1, uint16x2_t rs2);`  | `pwmulsu.h`(RV32), `zip16p`+`pmulsu.w.h01`(RV64) |
+| Prototype                                                          | Instruction                                                   |
+|--------------------------------------------------------------------|---------------------------------------------------------------|
+| `int16x4_t __riscv_pwmul_i16x4(int8x4_t rs1, int8x4_t rs2);`       | `pwmul.b`(RV32), `zip8p`+`pmul.h.b01`(RV64)                   |
+| `int32x2_t __riscv_pwmul_i32x2(int16x2_t rs1, int16x2_t rs2);`     | `pwmul.h`(RV32), `zip16p`+`pmul.w.h01`(RV64)                  |
+| `uint16x4_t __riscv_pwmulu_u16x4(uint8x4_t rs1, uint8x4_t rs2);`   | `pwmulu.b`(RV32), `zip8p`+`pmulu.h.b01`(RV64)                 |
+| `uint32x2_t __riscv_pwmulu_u32x2(uint16x2_t rs1, uint16x2_t rs2);` | `pwmulu.h`(RV32), `zip16p`+`pmulu.w.h01`(RV64)                |
+| `int16x4_t __riscv_pwmulsu_i16x4(int8x4_t rs1, uint8x4_t rs2);`    | `pwmulsu.b`(RV32), `pwcvtu.b`+`pwcvtu.b`+`pmulsu.h.b00`(RV64) |
+| `int32x2_t __riscv_pwmulsu_i32x2(int16x2_t rs1, uint16x2_t rs2);`  | `pwmulsu.h`(RV32), `pwcvtu.h`+`pwcvtu.h`+`pmulsu.w.h00`(RV64) |
 
 ### Packed Widening Multiply Accumulate
 
