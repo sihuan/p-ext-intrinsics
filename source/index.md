@@ -663,27 +663,20 @@ Requires 2 instructions on RV32.
 
 #### 64-bit
 
-| Prototype                                                       | Instruction                       |
-|-----------------------------------------------------------------|-----------------------------------|
-| `int16x4_t __riscv_pas_x_i16x4(int16x4_t rs1, int16x4_t rs2);`  | `pas.hx`(RV64), `pas.dhx`(RV32)   |
-| `int16x4_t __riscv_psa_x_i16x4(int16x4_t rs1, int16x4_t rs2);`  | `psa.hx`(RV64), `psa.dhx`(RV32)   |
-| `int16x4_t __riscv_psas_x_i16x4(int16x4_t rs1, int16x4_t rs2);` | `psas.hx`(RV64), `psas.dhx`(RV32) |
-| `int16x4_t __riscv_pssa_x_i16x4(int16x4_t rs1, int16x4_t rs2);` | `pssa.hx`(RV64), `pssa.dhx`(RV32) |
-| `int16x4_t __riscv_paas_x_i16x4(int16x4_t rs1, int16x4_t rs2);` | `paas.hx`(RV64), `paas.dhx`(RV32) |
-| `int16x4_t __riscv_pasa_x_i16x4(int16x4_t rs1, int16x4_t rs2);` | `pasa.hx`(RV64), `pasa.dhx`(RV32) |
-
-#### 64-bit (RV64 Only)
-
-* TODO: Could be emulated on RV32 with 2 instructions.
-
-| Prototype                                                       | Instruction                       |
-|-----------------------------------------------------------------|-----------------------------------|
-| `int32x2_t __riscv_pas_x_i32x2(int32x2_t rs1, int32x2_t rs2);`  | `pas.wx`                          |
-| `int32x2_t __riscv_psa_x_i32x2(int32x2_t rs1, int32x2_t rs2);`  | `psa.wx`                          |
-| `int32x2_t __riscv_psas_x_i32x2(int32x2_t rs1, int32x2_t rs2);` | `psas.wx`                         |
-| `int32x2_t __riscv_pssa_x_i32x2(int32x2_t rs1, int32x2_t rs2);` | `pssa.wx`                         |
-| `int32x2_t __riscv_paas_x_i32x2(int32x2_t rs1, int32x2_t rs2);` | `paas.wx`                         |
-| `int32x2_t __riscv_pasa_x_i32x2(int32x2_t rs1, int32x2_t rs2);` | `pasa.wx`                         |
+| Prototype                                                       | Instruction                                |
+|-----------------------------------------------------------------|--------------------------------------------|
+| `int16x4_t __riscv_pas_x_i16x4(int16x4_t rs1, int16x4_t rs2);`  | `pas.hx`(RV64), `pas.dhx`(RV32)            |
+| `int16x4_t __riscv_psa_x_i16x4(int16x4_t rs1, int16x4_t rs2);`  | `psa.hx`(RV64), `psa.dhx`(RV32)            |
+| `int16x4_t __riscv_psas_x_i16x4(int16x4_t rs1, int16x4_t rs2);` | `psas.hx`(RV64), `psas.dhx`(RV32)          |
+| `int16x4_t __riscv_pssa_x_i16x4(int16x4_t rs1, int16x4_t rs2);` | `pssa.hx`(RV64), `pssa.dhx`(RV32)          |
+| `int16x4_t __riscv_paas_x_i16x4(int16x4_t rs1, int16x4_t rs2);` | `paas.hx`(RV64), `paas.dhx`(RV32)          |
+| `int16x4_t __riscv_pasa_x_i16x4(int16x4_t rs1, int16x4_t rs2);` | `pasa.hx`(RV64), `pasa.dhx`(RV32)          |
+| `int32x2_t __riscv_pas_x_i32x2(int32x2_t rs1, int32x2_t rs2);`  | `pas.wx`(RV64), `pas.wx`+`pas.wx`(RV32)    |
+| `int32x2_t __riscv_psa_x_i32x2(int32x2_t rs1, int32x2_t rs2);`  | `psa.wx`(RV64), `psa.wx`+`psa.wx`(RV32)    |
+| `int32x2_t __riscv_psas_x_i32x2(int32x2_t rs1, int32x2_t rs2);` | `psas.wx`(RV64), `psas.wx`+`psas.wx`(RV32) |
+| `int32x2_t __riscv_pssa_x_i32x2(int32x2_t rs1, int32x2_t rs2);` | `pssa.wx`(RV64), `pssa.wx`+`pssa.wx`(RV32) |
+| `int32x2_t __riscv_paas_x_i32x2(int32x2_t rs1, int32x2_t rs2);` | `paas.wx`(RV64), `paas.wx`+`paas.wx`(RV32) |
+| `int32x2_t __riscv_pasa_x_i32x2(int32x2_t rs1, int32x2_t rs2);` | `pasa.wx`(RV64), `pasa.wx`+`pasa.wx`(RV32) |
 
 ### Packed Comparisons
 
@@ -809,24 +802,22 @@ TODO: pmseqz/pmsnez/pmsgtz/pmsltz? Allows x0 usage without pmv_s intrinsic.
 | `int16x2_t __riscv_pmulhsu_i16x2(int16x2_t rs1, uint16x2_t rs2);`   | `pmulhsu.h`        |
 | `int16x2_t __riscv_pmulhrsu_i16x2(int16x2_t rs1, uint16x2_t rs2);`  | `pmulhrsu.h`       |
 
-#### 64-bit (RV64 Only)
+#### 64-bit
 
-* TODO: Could be emulated on RV32 with 2 instructions.
-
-| Prototype                                                           | Instruction        |
-|---------------------------------------------------------------------|--------------------|
-| `int16x4_t __riscv_pmulh_i16x4(int16x4_t rs1, int16x4_t rs2);`      | `pmulh.h`(RV64)    |
-| `int32x2_t __riscv_pmulh_i32x2(int32x2_t rs1, int32x2_t rs2);`      | `pmulh.w`(RV64)    |
-| `int16x4_t __riscv_pmulhr_i16x4(int16x4_t rs1, int16x4_t rs2);`     | `pmulhr.h`(RV64)   |
-| `int32x2_t __riscv_pmulhr_i32x2(int32x2_t rs1, int32x2_t rs2);`     | `pmulhr.w`(RV64)   |
-| `uint16x4_t __riscv_pmulhu_u16x4(uint16x4_t rs1, uint16x4_t rs2);`  | `pmulhu.h`(RV64)   |
-| `uint32x2_t __riscv_pmulhu_u32x2(uint32x2_t rs1, uint32x2_t rs2);`  | `pmulhu.w`(RV64)   |
-| `uint16x4_t __riscv_pmulhru_u16x4(uint16x4_t rs1, uint16x4_t rs2);` | `pmulhru.h`(RV64)  |
-| `uint32x2_t __riscv_pmulhru_u32x2(uint32x2_t rs1, uint32x2_t rs2);` | `pmulhru.w`(RV64)  |
-| `int16x4_t __riscv_pmulhsu_i16x4(int16x4_t rs1, uint16x4_t rs2);`   | `pmulhsu.h`(RV64)  |
-| `int32x2_t __riscv_pmulhsu_i32x2(int32x2_t rs1, uint32x2_t rs2);`   | `pmulhsu.w`(RV64)  |
-| `int16x4_t __riscv_pmulhrsu_i16x4(int16x4_t rs1, uint16x4_t rs2);`  | `pmulhrsu.h`(RV64) |
-| `int32x2_t __riscv_pmulhrsu_i32x2(int32x2_t rs1, uint32x2_t rs2);`  | `pmulhrsu.w`(RV64) |
+| Prototype                                                           | Instruction                                         |
+|---------------------------------------------------------------------|-----------------------------------------------------|
+| `int16x4_t __riscv_pmulh_i16x4(int16x4_t rs1, int16x4_t rs2);`      | `pmulh.h`(RV64), `pmulh.h`+`pmulh.h`(RV32)          |
+| `int32x2_t __riscv_pmulh_i32x2(int32x2_t rs1, int32x2_t rs2);`      | `pmulh.w`(RV64), `pmulh.w`+`pmulh.w`(RV32)          |
+| `int16x4_t __riscv_pmulhr_i16x4(int16x4_t rs1, int16x4_t rs2);`     | `pmulhr.h`(RV64), `pmulhr.h`+`pmulhr.h`(RV32)       |
+| `int32x2_t __riscv_pmulhr_i32x2(int32x2_t rs1, int32x2_t rs2);`     | `pmulhr.w`(RV64), `pmulhr.w`+`pmulhr.w`(RV32)       |
+| `uint16x4_t __riscv_pmulhu_u16x4(uint16x4_t rs1, uint16x4_t rs2);`  | `pmulhu.h`(RV64), `pmulhu.h`+`pmulhu.h`(RV32)       |
+| `uint32x2_t __riscv_pmulhu_u32x2(uint32x2_t rs1, uint32x2_t rs2);`  | `pmulhu.w`(RV64), `pmulhu.w`+`pmulhu.w`(RV32)       |
+| `uint16x4_t __riscv_pmulhru_u16x4(uint16x4_t rs1, uint16x4_t rs2);` | `pmulhru.h`(RV64), `pmulhru.h`+`pmulhru.h`(RV32)    |
+| `uint32x2_t __riscv_pmulhru_u32x2(uint32x2_t rs1, uint32x2_t rs2);` | `pmulhru.w`(RV64), `pmulhru.w`+`pmulhru.w`(RV32)    |
+| `int16x4_t __riscv_pmulhsu_i16x4(int16x4_t rs1, uint16x4_t rs2);`   | `pmulhsu.h`(RV64), `pmulhsu.h`+`pmulhsu.h`(RV32)    |
+| `int32x2_t __riscv_pmulhsu_i32x2(int32x2_t rs1, uint32x2_t rs2);`   | `pmulhsu.w`(RV64), `pmulhsu.w`+`pmulhsu.w`(RV32)    |
+| `int16x4_t __riscv_pmulhrsu_i16x4(int16x4_t rs1, uint16x4_t rs2);`  | `pmulhrsu.h`(RV64), `pmulhrsu.h`+`pmulhrsu.h`(RV32) |
+| `int32x2_t __riscv_pmulhrsu_i32x2(int32x2_t rs1, uint32x2_t rs2);`  | `pmulhrsu.w`(RV64), `pmulhrsu.w`+`pmulhrsu.w`(RV32) |
 
 ### Packed Multiply High Accumulate
 
@@ -841,24 +832,22 @@ TODO: pmseqz/pmsnez/pmsgtz/pmsltz? Allows x0 usage without pmv_s intrinsic.
 | `int16x2_t __riscv_pmhaccsu_i16x2(int16x2_t rd, int16x2_t rs1, uint16x2_t rs2);`    | `pmhaccsu.h`        |
 | `int16x2_t __riscv_pmhraccsu_i16x2(int16x2_t rd, int16x2_t rs1, uint16x2_t rs2);`   | `pmhraccsu.h`       |
 
-#### 64-bit (RV64 Only)
+#### 64-bit
 
-* TODO: Could be emulated on RV32 with 2 instructions.
-
-| Prototype                                                                           | Instruction         |
-|-------------------------------------------------------------------------------------|---------------------|
-| `int16x4_t __riscv_pmhacc_i16x4(int16x4_t rd, int16x4_t rs1, int16x4_t rs2);`       | `pmhacc.h`          |
-| `int32x2_t __riscv_pmhacc_i32x2(int32x2_t rd, int32x2_t rs1, int32x2_t rs2);`       | `pmhacc.w`          |
-| `int16x4_t __riscv_pmhracc_i16x4(int16x4_t rd, int16x4_t rs1, int16x4_t rs2);`      | `pmhracc.h`         |
-| `int32x2_t __riscv_pmhracc_i32x2(int32x2_t rd, int32x2_t rs1, int32x2_t rs2);`      | `pmhracc.w`         |
-| `uint16x4_t __riscv_pmhaccu_u16x4(uint16x4_t rd, uint16x4_t rs1, uint16x4_t rs2);`  | `pmhaccu.h`         |
-| `uint32x2_t __riscv_pmhaccu_u32x2(uint32x2_t rd, uint32x2_t rs1, uint32x2_t rs2);`  | `pmhaccu.w`         |
-| `uint16x4_t __riscv_pmhraccu_u16x4(uint16x4_t rd, uint16x4_t rs1, uint16x4_t rs2);` | `pmhraccu.h`        |
-| `uint32x2_t __riscv_pmhraccu_u32x2(uint32x2_t rd, uint32x2_t rs1, uint32x2_t rs2);` | `pmhraccu.w`        |
-| `int16x4_t __riscv_pmhaccsu_i16x4(int16x4_t rd, int16x4_t rs1, uint16x4_t rs2);`    | `pmhaccsu.h`        |
-| `int32x2_t __riscv_pmhaccsu_i32x2(int32x2_t rd, int32x2_t rs1, uint32x2_t rs2);`    | `pmhaccsu.w`        |
-| `int16x4_t __riscv_pmhraccsu_i16x4(int16x4_t rd, int16x4_t rs1, uint16x4_t rs2);`   | `pmhraccsu.h`       |
-| `int32x2_t __riscv_pmhraccsu_i32x2(int32x2_t rd, int32x2_t rs1, uint32x2_t rs2);`   | `pmhraccsu.w`       |
+| Prototype                                                                           | Instruction                                            |
+|-------------------------------------------------------------------------------------|--------------------------------------------------------|
+| `int16x4_t __riscv_pmhacc_i16x4(int16x4_t rd, int16x4_t rs1, int16x4_t rs2);`       | `pmhacc.h`(RV64), `pmhacc.h`+`pmhacc.h`(RV32)          |
+| `int32x2_t __riscv_pmhacc_i32x2(int32x2_t rd, int32x2_t rs1, int32x2_t rs2);`       | `pmhacc.w`(RV64), `pmhacc.w`+`pmhacc.w`(RV32)          |
+| `int16x4_t __riscv_pmhracc_i16x4(int16x4_t rd, int16x4_t rs1, int16x4_t rs2);`      | `pmhracc.h`(RV64), `pmhracc.h`+`pmhracc.h`(RV32)       |
+| `int32x2_t __riscv_pmhracc_i32x2(int32x2_t rd, int32x2_t rs1, int32x2_t rs2);`      | `pmhracc.w`(RV64), `pmhracc.w`+`pmhracc.w`(RV32)       |
+| `uint16x4_t __riscv_pmhaccu_u16x4(uint16x4_t rd, uint16x4_t rs1, uint16x4_t rs2);`  | `pmhaccu.h`(RV64), `pmhaccu.h`+`pmhaccu.h`(RV32)       |
+| `uint32x2_t __riscv_pmhaccu_u32x2(uint32x2_t rd, uint32x2_t rs1, uint32x2_t rs2);`  | `pmhaccu.w`(RV64), `pmhaccu.w`+`pmhaccu.w`(RV32)       |
+| `uint16x4_t __riscv_pmhraccu_u16x4(uint16x4_t rd, uint16x4_t rs1, uint16x4_t rs2);` | `pmhraccu.h`(RV64), `pmhraccu.h`+`pmhraccu.h`(RV32)    |
+| `uint32x2_t __riscv_pmhraccu_u32x2(uint32x2_t rd, uint32x2_t rs1, uint32x2_t rs2);` | `pmhraccu.w`(RV64), `pmhraccu.w`+`pmhraccu.w`(RV32)    |
+| `int16x4_t __riscv_pmhaccsu_i16x4(int16x4_t rd, int16x4_t rs1, uint16x4_t rs2);`    | `pmhaccsu.h`(RV64), `pmhaccsu.h`+`pmhaccsu.h`(RV32)    |
+| `int32x2_t __riscv_pmhaccsu_i32x2(int32x2_t rd, int32x2_t rs1, uint32x2_t rs2);`    | `pmhaccsu.w`(RV64), `pmhaccsu.w`+`pmhaccsu.w`(RV32)    |
+| `int16x4_t __riscv_pmhraccsu_i16x4(int16x4_t rd, int16x4_t rs1, uint16x4_t rs2);`   | `pmhraccsu.h`(RV64), `pmhraccsu.h`+`pmhraccsu.h`(RV32) |
+| `int32x2_t __riscv_pmhraccsu_i32x2(int32x2_t rd, int32x2_t rs1, uint32x2_t rs2);`   | `pmhraccsu.w`(RV64), `pmhraccsu.w`+`pmhraccsu.w`(RV32) |
 
 ### Packed "Q-format" Multiplication
 
@@ -869,16 +858,14 @@ TODO: pmseqz/pmsnez/pmsgtz/pmsltz? Allows x0 usage without pmv_s intrinsic.
 | `int16x2_t __riscv_pmulq_i16x2(int16x2_t rs1, int16x2_t rs2);`  | `pmulq.h`        |
 | `int16x2_t __riscv_pmulqr_i16x2(int16x2_t rs1, int16x2_t rs2);` | `pmulqr.h`       |
 
-#### 64-bit (RV64 Only)
+#### 64-bit
 
-* TODO: Could be emulated on RV32 with 2 instructions.
-
-| Prototype                                                       | Instruction      |
-|-----------------------------------------------------------------|------------------|
-| `int16x4_t __riscv_pmulq_i16x4(int16x4_t rs1, int16x4_t rs2);`  | `pmulq.h`        |
-| `int32x2_t __riscv_pmulq_i32x2(int32x2_t rs1, int32x2_t rs2);`  | `pmulq.w`        |
-| `int16x4_t __riscv_pmulqr_i16x4(int16x4_t rs1, int16x4_t rs2);` | `pmulqr.h`       |
-| `int32x2_t __riscv_pmulqr_i32x2(int32x2_t rs1, int32x2_t rs2);` | `pmulqr.w`       |
+| Prototype                                                       | Instruction                                   |
+|-----------------------------------------------------------------|-----------------------------------------------|
+| `int16x4_t __riscv_pmulq_i16x4(int16x4_t rs1, int16x4_t rs2);`  | `pmulq.h`(RV64), `pmulq.h`+`pmulq.h`(RV32)    |
+| `int32x2_t __riscv_pmulq_i32x2(int32x2_t rs1, int32x2_t rs2);`  | `pmulq.w`(RV64), `pmulq.w`+`pmulq.w`(RV32)    |
+| `int16x4_t __riscv_pmulqr_i16x4(int16x4_t rs1, int16x4_t rs2);` | `pmulqr.h`(RV64), `pmulqr.h`+`pmulqr.h`(RV32) |
+| `int32x2_t __riscv_pmulqr_i32x2(int32x2_t rs1, int32x2_t rs2);` | `pmulqr.w`(RV64), `pmulqr.w`+`pmulqr.w`(RV32) |
 
 ### Packed Multiply Parts
 
@@ -903,36 +890,34 @@ TODO: pmseqz/pmsnez/pmsgtz/pmsltz? Allows x0 usage without pmv_s intrinsic.
 | `int32_t __riscv_mulsu_h00_i32(int16x2_t rs1, uint16x2_t rs2);`      | `mulsu.h00`(RV32), `pmulsu.w.h00`(RV64) |
 | `int32_t __riscv_mulsu_h11_i32(int16x2_t rs1, uint16x2_t rs2);`      | `mulsu.h11`(RV32), `pmulsu.w.h11`(RV64) |
 
-### 64-bit (RV64 Only)
+### 64-bit
 
-* TODO: Could be emulated on RV32 with 2 instructions.
-
-| Prototype                                                              | Instruction                             |
-|------------------------------------------------------------------------|-----------------------------------------|
-| `int16x4_t __riscv_pmul_b00_i16x4(int8x8_t rs1, int8x8_t rs2);`        | `pmul.h.b00`                            |
-| `int16x4_t __riscv_pmul_b01_i16x4(int8x8_t rs1, int8x8_t rs2);`        | `pmul.h.b01`                            |
-| `int16x4_t __riscv_pmul_b11_i16x4(int8x8_t rs1, int8x8_t rs2);`        | `pmul.h.b11`                            |
-| `uint16x4_t __riscv_pmulu_b00_u16x4(uint8x8_t rs1, uint8x8_t rs2);`    | `pmulu.h.b00`                           |
-| `uint16x4_t __riscv_pmulu_b01_u16x4(uint8x8_t rs1, uint8x8_t rs2);`    | `pmulu.h.b01`                           |
-| `uint16x4_t __riscv_pmulu_b11_u16x4(uint8x8_t rs1, uint8x8_t rs2);`    | `pmulu.h.b11`                           |
-| `int16x4_t __riscv_pmulsu_b00_i16x4(int8x8_t rs1, uint8x8_t rs2);`     | `pmulsu.h.b00`                          |
-| `int16x4_t __riscv_pmulsu_b11_i16x4(int8x8_t rs1, uint8x8_t rs2);`     | `pmulsu.h.b11`                          |
-| `int32x2_t __riscv_pmul_h00_i32x2(int16x4_t rs1, int16x4_t rs2);`      | `pmul.w.h00`                            |
-| `int32x2_t __riscv_pmul_h01_i32x2(int16x4_t rs1, int16x4_t rs2);`      | `pmul.w.h01`                            |
-| `int32x2_t __riscv_pmul_h11_i32x2(int16x4_t rs1, int16x4_t rs2);`      | `pmul.w.h11`                            |
-| `uint32x2_t __riscv_pmulu_h00_u32x2(uint16x4_t rs1, uint16x4_t rs2);`  | `pmulu.w.h00`                           |
-| `uint32x2_t __riscv_pmulu_h01_u32x2(uint16x4_t rs1, uint16x4_t rs2);`  | `pmulu.w.h01`                           |
-| `uint32x2_t __riscv_pmulu_h11_u32x2(uint16x4_t rs1, uint16x4_t rs2);`  | `pmulu.w.h11`                           |
-| `int32x2_t __riscv_pmulsu_h00_i32x2(int16x4_t rs1, uint16x4_t rs2);`   | `pmulsu.w.h00`                          |
-| `int32x2_t __riscv_pmulsu_h11_i32x2(int16x4_t rs1, uint16x4_t rs2);`   | `pmulsu.w.h11`                          |
-| `int64_t __riscv_mul_w00_i64(int32x2_t rs1, int32x2_t rs2);`           | `mul.w00`                               |
-| `int64_t __riscv_mul_w01_i64(int32x2_t rs1, int32x2_t rs2);`           | `mul.w01`                               |
-| `int64_t __riscv_mul_w11_i64(int32x2_t rs1, int32x2_t rs2);`           | `mul.w11`                               |
-| `uint64_t __riscv_mulu_w00_i64(uint32x2_t rs1, uint32x2_t rs2);`       | `mulu.w00`                              |
-| `uint64_t __riscv_mulu_w01_i64(uint32x2_t rs1, uint32x2_t rs2);`       | `mulu.w01`                              |
-| `uint64_t __riscv_mulu_w11_i64(uint32x2_t rs1, uint32x2_t rs2);`       | `mulu.w11`                              |
-| `int64_t __riscv_mulsu_w00_i64(int32x2_t rs1, uint32x2_t rs2);`        | `mulsu.w00`                             |
-| `int64_t __riscv_mulsu_w11_i64(int32x2_t rs1, uint32x2_t rs2);`        | `mulsu.w11`                             |
+| Prototype                                                              | Instruction                                               |
+|------------------------------------------------------------------------|-----------------------------------------------------------|
+| `int16x4_t __riscv_pmul_b00_i16x4(int8x8_t rs1, int8x8_t rs2);`        | `pmul.h.b00`(RV64), `pmul.h.b00`+`pmul.h.b00`(RV32)       |
+| `int16x4_t __riscv_pmul_b01_i16x4(int8x8_t rs1, int8x8_t rs2);`        | `pmul.h.b01`(RV64), `pmul.h.b01`+`pmul.h.b01`(RV32)       |
+| `int16x4_t __riscv_pmul_b11_i16x4(int8x8_t rs1, int8x8_t rs2);`        | `pmul.h.b11`(RV64), `pmul.h.b11`+`pmul.h.b11`(RV32)       |
+| `uint16x4_t __riscv_pmulu_b00_u16x4(uint8x8_t rs1, uint8x8_t rs2);`    | `pmulu.h.b00`(RV64), `pmulu.h.b00`+`pmulu.h.b00`(RV32)    |
+| `uint16x4_t __riscv_pmulu_b01_u16x4(uint8x8_t rs1, uint8x8_t rs2);`    | `pmulu.h.b01`(RV64), `pmulu.h.b01`+`pmulu.h.b01`(RV32)    |
+| `uint16x4_t __riscv_pmulu_b11_u16x4(uint8x8_t rs1, uint8x8_t rs2);`    | `pmulu.h.b11`(RV64), `pmulu.h.b11`+`pmulu.h.b11`(RV32)    |
+| `int16x4_t __riscv_pmulsu_b00_i16x4(int8x8_t rs1, uint8x8_t rs2);`     | `pmulsu.h.b00`(RV64), `pmulsu.h.b00`+`pmulsu.h.b00`(RV32) |
+| `int16x4_t __riscv_pmulsu_b11_i16x4(int8x8_t rs1, uint8x8_t rs2);`     | `pmulsu.h.b11`(RV64), `pmulsu.h.b11`+`pmulsu.h.b11`(RV32) |
+| `int32x2_t __riscv_pmul_h00_i32x2(int16x4_t rs1, int16x4_t rs2);`      | `pmul.w.h00`(RV64), `pmul.w.h00`+`pmul.w.h00`(RV32)       |
+| `int32x2_t __riscv_pmul_h01_i32x2(int16x4_t rs1, int16x4_t rs2);`      | `pmul.w.h01`(RV64), `pmul.w.h01`+`pmul.w.h01`(RV32)       |
+| `int32x2_t __riscv_pmul_h11_i32x2(int16x4_t rs1, int16x4_t rs2);`      | `pmul.w.h11`(RV64), `pmul.w.h11`+`pmul.w.h11`(RV32)       |
+| `uint32x2_t __riscv_pmulu_h00_u32x2(uint16x4_t rs1, uint16x4_t rs2);`  | `pmulu.w.h00`(RV64), `pmulu.w.h00`+`pmulu.w.h00`(RV32)    |
+| `uint32x2_t __riscv_pmulu_h01_u32x2(uint16x4_t rs1, uint16x4_t rs2);`  | `pmulu.w.h01`(RV64), `pmulu.w.h01`+`pmulu.w.h01`(RV32)    |
+| `uint32x2_t __riscv_pmulu_h11_u32x2(uint16x4_t rs1, uint16x4_t rs2);`  | `pmulu.w.h11`(RV64), `pmulu.w.h11`+`pmulu.w.h11`(RV32)    |
+| `int32x2_t __riscv_pmulsu_h00_i32x2(int16x4_t rs1, uint16x4_t rs2);`   | `pmulsu.w.h00`(RV64), `pmulsu.w.h00`+`pmulsu.w.h00`(RV32) |
+| `int32x2_t __riscv_pmulsu_h11_i32x2(int16x4_t rs1, uint16x4_t rs2);`   | `pmulsu.w.h11`(RV64), `pmulsu.w.h11`+`pmulsu.w.h11`(RV32) |
+| `int64_t __riscv_mul_w00_i64(int32x2_t rs1, int32x2_t rs2);`           | `mul.w00`(RV64), `mul.w00`+`mul.w00`(RV32)                |
+| `int64_t __riscv_mul_w01_i64(int32x2_t rs1, int32x2_t rs2);`           | `mul.w01`(RV64), `mul.w01`+`mul.w01`(RV32)                |
+| `int64_t __riscv_mul_w11_i64(int32x2_t rs1, int32x2_t rs2);`           | `mul.w11`(RV64), `mul.w11`+`mul.w11`(RV32)                |
+| `uint64_t __riscv_mulu_w00_i64(uint32x2_t rs1, uint32x2_t rs2);`       | `mulu.w00`(RV64), `mulu.w00`+`mulu.w00`(RV32)             |
+| `uint64_t __riscv_mulu_w01_i64(uint32x2_t rs1, uint32x2_t rs2);`       | `mulu.w01`(RV64), `mulu.w01`+`mulu.w01`(RV32)             |
+| `uint64_t __riscv_mulu_w11_i64(uint32x2_t rs1, uint32x2_t rs2);`       | `mulu.w11`(RV64), `mulu.w11`+`mulu.w11`(RV32)             |
+| `int64_t __riscv_mulsu_w00_i64(int32x2_t rs1, uint32x2_t rs2);`        | `mulsu.w00`(RV64), `mulsu.w00`+`mulsu.w00`(RV32)          |
+| `int64_t __riscv_mulsu_w11_i64(int32x2_t rs1, uint32x2_t rs2);`        | `mulsu.w11`(RV64), `mulsu.w11`+`mulsu.w11`(RV32)          |
 
 ### Packed Multiply Parts Accumulate
 
@@ -949,28 +934,26 @@ TODO: pmseqz/pmsnez/pmsgtz/pmsltz? Allows x0 usage without pmv_s intrinsic.
 | `int32_t __riscv_maccsu_h00_i32(int32_t rd, int16x2_t rs1, uint16x2_t rs2);`       | `maccsu.h00`(RV32), `pmaccsu.w.h00`(RV64) |
 | `int32_t __riscv_maccsu_h11_i32(int32_t rd, int16x2_t rs1, uint16x2_t rs2);`       | `maccsu.h11`(RV32), `pmaccsu.w.h11`(RV64) |
 
-#### 64-bit (RV64 Only)
+#### 64-bit
 
-* TODO: Could be emulated on RV32 with 2 instructions.
-
-| Prototype                                                                             | Instruction                               |
-|---------------------------------------------------------------------------------------|-------------------------------------------|
-| `int32x2_t __riscv_pmacc_h00_i32x2(int32x2_t rd, int16x4_t rs1, int16x4_t rs2);`      | `pmacc.w.h00`                             |
-| `int32x2_t __riscv_pmacc_h01_i32x2(int32x2_t rd, int16x4_t rs1, int16x4_t rs2);`      | `pmacc.w.h01`                             |
-| `int32x2_t __riscv_pmacc_h11_i32x2(int32x2_t rd, int16x4_t rs1, int16x4_t rs2);`      | `pmacc.w.h11`                             |
-| `uint32x2_t __riscv_pmaccu_h00_u32x2(uint32x2_t rd, uint16x4_t rs1, uint16x4_t rs2);` | `pmaccu.w.h00`                            |
-| `uint32x2_t __riscv_pmaccu_h01_u32x2(uint32x2_t rd, uint16x4_t rs1, uint16x4_t rs2);` | `pmaccu.w.h01`                            |
-| `uint32x2_t __riscv_pmaccu_h11_u32x2(uint32x2_t rd, uint16x4_t rs1, uint16x4_t rs2);` | `pmaccu.w.h11`                            |
-| `int32x2_t __riscv_pmaccsu_h00_i32x2(int32x2_t rd, int16x4_t rs1, uint16x4_t rs2);`   | `pmaccsu.w.h00`                           |
-| `int32x2_t __riscv_pmaccsu_h11_i32x2(int32x2_t rd, int16x4_t rs1, uint16x4_t rs2);`   | `pmaccsu.w.h11`                           |
-| `int64_t __riscv_macc_w00_i64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`             | `macc.w00`                                |
-| `int64_t __riscv_macc_w01_i64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`             | `macc.w01`                                |
-| `int64_t __riscv_macc_w11_i64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`             | `macc.w11`                                |
-| `uint64_t __riscv_maccu_w00_u64(uint64_t rd, uint32x2_t rs1, uint32x2_t rs2);`        | `maccu.w00`                               |
-| `uint64_t __riscv_maccu_w01_u64(uint64_t rd, uint32x2_t rs1, uint32x2_t rs2);`        | `maccu.w01`                               |
-| `uint64_t __riscv_maccu_w11_u64(uint64_t rd, uint32x2_t rs1, uint32x2_t rs2);`        | `maccu.w11`                               |
-| `int64_t __riscv_maccsu_w00_i64(int64_t rd, int32x2_t rs1, uint32x2_t rs2);`          | `maccsu.w00`                              |
-| `int64_t __riscv_maccsu_w11_i64(int64_t rd, int32x2_t rs1, uint32x2_t rs2);`          | `maccsu.w11`                              |
+| Prototype                                                                             | Instruction                                                  |
+|---------------------------------------------------------------------------------------|--------------------------------------------------------------|
+| `int32x2_t __riscv_pmacc_h00_i32x2(int32x2_t rd, int16x4_t rs1, int16x4_t rs2);`      | `pmacc.w.h00`(RV64), `pmacc.w.h00`+`pmacc.w.h00`(RV32)       |
+| `int32x2_t __riscv_pmacc_h01_i32x2(int32x2_t rd, int16x4_t rs1, int16x4_t rs2);`      | `pmacc.w.h01`(RV64), `pmacc.w.h01`+`pmacc.w.h01`(RV32)       |
+| `int32x2_t __riscv_pmacc_h11_i32x2(int32x2_t rd, int16x4_t rs1, int16x4_t rs2);`      | `pmacc.w.h11`(RV64), `pmacc.w.h11`+`pmacc.w.h11`(RV32)       |
+| `uint32x2_t __riscv_pmaccu_h00_u32x2(uint32x2_t rd, uint16x4_t rs1, uint16x4_t rs2);` | `pmaccu.w.h00`(RV64), `pmaccu.w.h00`+`pmaccu.w.h00`(RV32)    |
+| `uint32x2_t __riscv_pmaccu_h01_u32x2(uint32x2_t rd, uint16x4_t rs1, uint16x4_t rs2);` | `pmaccu.w.h01`(RV64), `pmaccu.w.h01`+`pmaccu.w.h01`(RV32)    |
+| `uint32x2_t __riscv_pmaccu_h11_u32x2(uint32x2_t rd, uint16x4_t rs1, uint16x4_t rs2);` | `pmaccu.w.h11`(RV64), `pmaccu.w.h11`+`pmaccu.w.h11`(RV32)    |
+| `int32x2_t __riscv_pmaccsu_h00_i32x2(int32x2_t rd, int16x4_t rs1, uint16x4_t rs2);`   | `pmaccsu.w.h00`(RV64), `pmaccsu.w.h00`+`pmaccsu.w.h00`(RV32) |
+| `int32x2_t __riscv_pmaccsu_h11_i32x2(int32x2_t rd, int16x4_t rs1, uint16x4_t rs2);`   | `pmaccsu.w.h11`(RV64), `pmaccsu.w.h11`+`pmaccsu.w.h11`(RV32) |
+| `int64_t __riscv_macc_w00_i64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`             | `macc.w00`(RV64), `macc.w00`+`macc.w00`(RV32)                |
+| `int64_t __riscv_macc_w01_i64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`             | `macc.w01`(RV64), `macc.w01`+`macc.w01`(RV32)                |
+| `int64_t __riscv_macc_w11_i64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`             | `macc.w11`(RV64), `macc.w11`+`macc.w11`(RV32)                |
+| `uint64_t __riscv_maccu_w00_u64(uint64_t rd, uint32x2_t rs1, uint32x2_t rs2);`        | `maccu.w00`(RV64), `maccu.w00`+`maccu.w00`(RV32)             |
+| `uint64_t __riscv_maccu_w01_u64(uint64_t rd, uint32x2_t rs1, uint32x2_t rs2);`        | `maccu.w01`(RV64), `maccu.w01`+`maccu.w01`(RV32)             |
+| `uint64_t __riscv_maccu_w11_u64(uint64_t rd, uint32x2_t rs1, uint32x2_t rs2);`        | `maccu.w11`(RV64), `maccu.w11`+`maccu.w11`(RV32)             |
+| `int64_t __riscv_maccsu_w00_i64(int64_t rd, int32x2_t rs1, uint32x2_t rs2);`          | `maccsu.w00`(RV64), `maccsu.w00`+`maccsu.w00`(RV32)          |
+| `int64_t __riscv_maccsu_w11_i64(int64_t rd, int32x2_t rs1, uint32x2_t rs2);`          | `maccsu.w11`(RV64), `maccsu.w11`+`maccsu.w11`(RV32)          |
 
 
 ### Packed "Q-format" Multiply Parts Accumulate
@@ -986,24 +969,22 @@ TODO: pmseqz/pmsnez/pmsgtz/pmsltz? Allows x0 usage without pmv_s intrinsic.
 | `int32_t __riscv_mqracc_h01_i32(int32_t rd, int16x2_t rs1, int16x2_t rs2);`        | `mqracc.h01`(RV32), `pmqracc.w.h01`(RV64) |
 | `int32_t __riscv_mqracc_h11_i32(int32_t rd, int16x2_t rs1, int16x2_t rs2);`        | `mqracc.h11`(RV32), `pmqracc.w.h11`(RV64) |
 
-#### 64-bit (RV64 Only)
+#### 64-bit
 
-* TODO: Could be emulated on RV32 with 2 instructions.
-
-| Prototype                                                                          | Instruction                               |
-|------------------------------------------------------------------------------------|-------------------------------------------|
-| `int32x2_t __riscv_pmqacc_h00_i32x2(int32x2_t rd, int16x2_t rs1, int16x2_t rs2);`  | `pmqacc.w.h00`                            |
-| `int32x2_t __riscv_pmqacc_h01_i32x2(int32x2_t rd, int16x2_t rs1, int16x2_t rs2);`  | `pmqacc.w.h01`                            |
-| `int32x2_t __riscv_pmqacc_h11_i32x2(int32x2_t rd, int16x2_t rs1, int16x2_t rs2);`  | `pmqacc.w.h11`                            |
-| `int32x2_t __riscv_pmqracc_h00_i32x2(int32x2_t rd, int16x2_t rs1, int16x2_t rs2);` | `pmqracc.w.h00`                           |
-| `int32x2_t __riscv_pmqracc_h01_i32x2(int32x2_t rd, int16x2_t rs1, int16x2_t rs2);` | `pmqracc.w.h01`                           |
-| `int32x2_t __riscv_pmqracc_h11_i32x2(int32x2_t rd, int16x2_t rs1, int16x2_t rs2);` | `pmqracc.w.h11`                           |
-| `int64_t __riscv_mqacc_h00_i64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`         | `mqacc.w00`                               |
-| `int64_t __riscv_mqacc_h01_i64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`         | `mqacc.w01`                               |
-| `int64_t __riscv_mqacc_h11_i64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`         | `mqacc.w11`                               |
-| `int64_t __riscv_mqracc_h00_i64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`        | `mqracc.w00`                              |
-| `int64_t __riscv_mqracc_h01_i64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`        | `mqracc.w01`                              |
-| `int64_t __riscv_mqracc_h11_i64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`        | `mqracc.w11`                              |
+| Prototype                                                                          | Instruction                                                  |
+|------------------------------------------------------------------------------------|--------------------------------------------------------------|
+| `int32x2_t __riscv_pmqacc_h00_i32x2(int32x2_t rd, int16x2_t rs1, int16x2_t rs2);`  | `pmqacc.w.h00`(RV64), `pmqacc.w.h00`+`pmqacc.w.h00`(RV32)    |
+| `int32x2_t __riscv_pmqacc_h01_i32x2(int32x2_t rd, int16x2_t rs1, int16x2_t rs2);`  | `pmqacc.w.h01`(RV64), `pmqacc.w.h01`+`pmqacc.w.h01`(RV32)    |
+| `int32x2_t __riscv_pmqacc_h11_i32x2(int32x2_t rd, int16x2_t rs1, int16x2_t rs2);`  | `pmqacc.w.h11`(RV64), `pmqacc.w.h11`+`pmqacc.w.h11`(RV32)    |
+| `int32x2_t __riscv_pmqracc_h00_i32x2(int32x2_t rd, int16x2_t rs1, int16x2_t rs2);` | `pmqracc.w.h00`(RV64), `pmqracc.w.h00`+`pmqracc.w.h00`(RV32) |
+| `int32x2_t __riscv_pmqracc_h01_i32x2(int32x2_t rd, int16x2_t rs1, int16x2_t rs2);` | `pmqracc.w.h01`(RV64), `pmqracc.w.h01`+`pmqracc.w.h01`(RV32) |
+| `int32x2_t __riscv_pmqracc_h11_i32x2(int32x2_t rd, int16x2_t rs1, int16x2_t rs2);` | `pmqracc.w.h11`(RV64), `pmqracc.w.h11`+`pmqracc.w.h11`(RV32) |
+| `int64_t __riscv_mqacc_h00_i64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`         | `mqacc.w00`(RV64), `mqacc.w00`+`mqacc.w00`(RV32)             |
+| `int64_t __riscv_mqacc_h01_i64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`         | `mqacc.w01`(RV64), `mqacc.w01`+`mqacc.w01`(RV32)             |
+| `int64_t __riscv_mqacc_h11_i64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`         | `mqacc.w11`(RV64), `mqacc.w11`+`mqacc.w11`(RV32)             |
+| `int64_t __riscv_mqracc_h00_i64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`        | `mqracc.w00`(RV64), `mqracc.w00`+`mqracc.w00`(RV32)          |
+| `int64_t __riscv_mqracc_h01_i64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`        | `mqracc.w01`(RV64), `mqracc.w01`+`mqracc.w01`(RV32)          |
+| `int64_t __riscv_mqracc_h11_i64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`        | `mqracc.w11`(RV64), `mqracc.w11`+`mqracc.w11`(RV32)          |
 
 ### Packed Multiply High Parts
 
@@ -1020,20 +1001,18 @@ TODO: pmseqz/pmsnez/pmsgtz/pmsltz? Allows x0 usage without pmv_s intrinsic.
 | `int32_t __riscv_mulhsu_h0_i32(int32_t rs1, uint16x2_t rs2);`        | `mulhsu.h0`(RV32), `pmulhsu.w.h0`(RV64) |
 | `int32_t __riscv_mulhsu_h1_i32(int32_t rs1, uint16x2_t rs2);`        | `mulhsu.h1`(RV32), `pmulhsu.w.h1`(RV64) |
 
-#### 64-bit (RV64 Only)
+#### 64-bit
 
-* TODO: Could be emulated on RV32 with 2 instructions.
-
-| Prototype                                                            | Instruction                             |
-|----------------------------------------------------------------------|-----------------------------------------|
-| `int16x4_t __riscv_pmulh_b0_i16x4(int16x4_t rs1, int8x8_t rs2);`     | `pmulh.h.b0`                            |
-| `int16x4_t __riscv_pmulh_b1_i16x4(int16x4_t rs1, int8x8_t rs2);`     | `pmulh.h.b1`                            |
-| `int16x4_t __riscv_pmulhsu_b0_i16x4(int16x4_t rs1, uint8x8_t rs2);`  | `pmulhsu.h.b0`                          |
-| `int16x4_t __riscv_pmulhsu_b1_i16x4(int16x4_t rs1, uint8x8_t rs2);`  | `pmulhsu.h.b1`                          |
-| `int32x2_t __riscv_pmulh_h0_i32x2(int32x2_t rs1, int16x4_t rs2);`    | `pmulh.w.h0`                            |
-| `int32x2_t __riscv_pmulh_h1_i32x2(int32x2_t rs1, int16x4_t rs2);`    | `pmulh.w.h1`                            |
-| `int32x2_t __riscv_pmulhsu_h0_i32x2(int32x2_t rs1, uint16x4_t rs2);` | `pmulhsu.w.h0`                          |
-| `int32x2_t __riscv_pmulhsu_h1_i32x2(int32x2_t rs1, uint16x4_t rs2);` | `pmulhsu.w.h1`                          |
+| Prototype                                                            | Instruction                                               |
+|----------------------------------------------------------------------|-----------------------------------------------------------|
+| `int16x4_t __riscv_pmulh_b0_i16x4(int16x4_t rs1, int8x8_t rs2);`     | `pmulh.h.b0`(RV64), `pmulh.h.b0`+`pmulh.h.b0`(RV32)       |
+| `int16x4_t __riscv_pmulh_b1_i16x4(int16x4_t rs1, int8x8_t rs2);`     | `pmulh.h.b1`(RV64), `pmulh.h.b1`+`pmulh.h.b1`(RV32)       |
+| `int16x4_t __riscv_pmulhsu_b0_i16x4(int16x4_t rs1, uint8x8_t rs2);`  | `pmulhsu.h.b0`(RV64), `pmulhsu.h.b0`+`pmulhsu.h.b0`(RV32) |
+| `int16x4_t __riscv_pmulhsu_b1_i16x4(int16x4_t rs1, uint8x8_t rs2);`  | `pmulhsu.h.b1`(RV64), `pmulhsu.h.b1`+`pmulhsu.h.b1`(RV32) |
+| `int32x2_t __riscv_pmulh_h0_i32x2(int32x2_t rs1, int16x4_t rs2);`    | `pmulh.w.h0`(RV64), `pmulh.w.h0`+`pmulh.w.h0`(RV32)       |
+| `int32x2_t __riscv_pmulh_h1_i32x2(int32x2_t rs1, int16x4_t rs2);`    | `pmulh.w.h1`(RV64), `pmulh.w.h1`+`pmulh.w.h1`(RV32)       |
+| `int32x2_t __riscv_pmulhsu_h0_i32x2(int32x2_t rs1, uint16x4_t rs2);` | `pmulhsu.w.h0`(RV64), `pmulhsu.w.h0`+`pmulhsu.w.h0`(RV32) |
+| `int32x2_t __riscv_pmulhsu_h1_i32x2(int32x2_t rs1, uint16x4_t rs2);` | `pmulhsu.w.h1`(RV64), `pmulhsu.w.h1`+`pmulhsu.w.h1`(RV32) |
 
 ### Packed Multiply High Parts Accumulate
 
@@ -1050,20 +1029,18 @@ TODO: pmseqz/pmsnez/pmsgtz/pmsltz? Allows x0 usage without pmv_s intrinsic.
 | `int32_t __riscv_mhaccsu_h0_i32(int32_t rd, int32_t rs1, uint16x2_t rs2);`          | `mhaccsu.h0`(RV32), `pmhaccsu.w.h0`(RV64) |
 | `int32_t __riscv_mhaccsu_h1_i32(int32_t rd, int32_t rs1, uint16x2_t rs2);`          | `mhaccsu.h1`(RV32), `pmhaccsu.w.h1`(RV64) |
 
-#### 64-bit (RV64 Only)
+#### 64-bit
 
-* TODO: Could be emulated on RV32 with 2 instructions.
-
-| Prototype                                                                           | Instruction                               |
-|-------------------------------------------------------------------------------------|-------------------------------------------|
-| `int16x4_t __riscv_pmhacc_b0_i16x4(int16x4_t rd, int16x4_t rs1, int8x8_t rs2);`     | `pmhacc.h.b0`                             |
-| `int16x4_t __riscv_pmhacc_b1_i16x4(int16x4_t rd, int16x4_t rs1, int8x8_t rs2);`     | `pmhacc.h.b1`                             |
-| `int16x4_t __riscv_pmhaccsu_b0_i16x4(int16x4_t rd, int16x4_t rs1, uint8x8_t rs2);`  | `pmhaccsu.h.b0`                           |
-| `int16x4_t __riscv_pmhaccsu_b1_i16x4(int16x4_t rd, int16x4_t rs1, uint8x8_t rs2);`  | `pmhaccsu.h.b1`                           |
-| `int32x2_t __riscv_pmhacc_h0_i32x2(int32x2_t rd, int32x2_t rs1, int16x4_t rs2);`    | `pmhacc.w.h0`                             |
-| `int32x2_t __riscv_pmhacc_h1_i32x2(int32x2_t rd, int32x2_t rs1, int16x4_t rs2);`    | `pmhacc.w.h1`                             |
-| `int32x2_t __riscv_pmhaccsu_h0_i32x2(int32x2_t rd, int32x2_t rs1, uint16x4_t rs2);` | `pmhaccsu.w.h0`                           |
-| `int32x2_t __riscv_pmhaccsu_h1_i32x2(int32x2_t rd, int32x2_t rs1, uint16x4_t rs2);` | `pmhaccsu.w.h1`                           |
+| Prototype                                                                           | Instruction                                                  |
+|-------------------------------------------------------------------------------------|--------------------------------------------------------------|
+| `int16x4_t __riscv_pmhacc_b0_i16x4(int16x4_t rd, int16x4_t rs1, int8x8_t rs2);`     | `pmhacc.h.b0`(RV64), `pmhacc.h.b0`+`pmhacc.h.b0`(RV32)       |
+| `int16x4_t __riscv_pmhacc_b1_i16x4(int16x4_t rd, int16x4_t rs1, int8x8_t rs2);`     | `pmhacc.h.b1`(RV64), `pmhacc.h.b1`+`pmhacc.h.b1`(RV32)       |
+| `int16x4_t __riscv_pmhaccsu_b0_i16x4(int16x4_t rd, int16x4_t rs1, uint8x8_t rs2);`  | `pmhaccsu.h.b0`(RV64), `pmhaccsu.h.b0`+`pmhaccsu.h.b0`(RV32) |
+| `int16x4_t __riscv_pmhaccsu_b1_i16x4(int16x4_t rd, int16x4_t rs1, uint8x8_t rs2);`  | `pmhaccsu.h.b1`(RV64), `pmhaccsu.h.b1`+`pmhaccsu.h.b1`(RV32) |
+| `int32x2_t __riscv_pmhacc_h0_i32x2(int32x2_t rd, int32x2_t rs1, int16x4_t rs2);`    | `pmhacc.w.h0`(RV64), `pmhacc.w.h0`+`pmhacc.w.h0`(RV32)       |
+| `int32x2_t __riscv_pmhacc_h1_i32x2(int32x2_t rd, int32x2_t rs1, int16x4_t rs2);`    | `pmhacc.w.h1`(RV64), `pmhacc.w.h1`+`pmhacc.w.h1`(RV32)       |
+| `int32x2_t __riscv_pmhaccsu_h0_i32x2(int32x2_t rd, int32x2_t rs1, uint16x4_t rs2);` | `pmhaccsu.w.h0`(RV64), `pmhaccsu.w.h0`+`pmhaccsu.w.h0`(RV32) |
+| `int32x2_t __riscv_pmhaccsu_h1_i32x2(int32x2_t rd, int32x2_t rs1, uint16x4_t rs2);` | `pmhaccsu.w.h1`(RV64), `pmhaccsu.w.h1`+`pmhaccsu.w.h1`(RV32) |
 
 ### Packed Logical Operations
 
@@ -1092,34 +1069,32 @@ These are convenience functions to allow bitwise and/or/xor/not on packed vector
 
 #### 64-bit
 
-* NOTE: This requires 2 instructions for RV32.
-
-| Prototype                                                        | Instruction |
-|------------------------------------------------------------------|-------------|
-| `int8x8_t __riscv_pand_i8x8(int8x8_t rs1, int8x8_t rs2);`        | `and`       |
-| `uint8x8_t __riscv_pand_u8x8(uint8x8_t rs1, uint8x8_t rs2);`     | `and`       |
-| `int16x4_t __riscv_pand_i16x4(int16x4_t rs1, int16x4_t rs2);`    | `and`       |
-| `uint16x4_t __riscv_pand_u16x4(uint16x4_t rs1, uint16x4_t rs2);` | `and`       |
-| `int32x2_t __riscv_pand_i32x2(int32x2_t rs1, int32x2_t rs2);`    | `and`       |
-| `uint32x2_t __riscv_pand_u32x2(uint32x2_t rs1, uint32x2_t rs2);` | `and`       |
-| `int8x8_t __riscv_por_i8x8(int8x8_t rs1, int8x8_t rs2);`         | `or`        |
-| `uint8x8_t __riscv_por_u8x8(uint8x8_t rs1, uint8x8_t rs2);`      | `or`        |
-| `int16x4_t __riscv_por_i16x4(int16x4_t rs1, int16x4_t rs2);`     | `or`        |
-| `uint16x4_t __riscv_por_u16x4(uint16x4_t rs1, uint16x4_t rs2);`  | `or`        |
-| `int32x2_t __riscv_por_i32x2(int32x2_t rs1, int32x2_t rs2);`     | `or`        |
-| `uint32x2_t __riscv_por_u32x2(uint32x2_t rs1, uint32x2_t rs2);`  | `or`        |
-| `int8x8_t __riscv_pxor_i8x8(int8x8_t rs1, int8x8_t rs2);`        | `xor`       |
-| `uint8x8_t __riscv_pxor_u8x8(uint8x8_t rs1, uint8x8_t rs2);`     | `xor`       |
-| `int16x4_t __riscv_pxor_i16x4(int16x4_t rs1, int16x4_t rs2);`    | `xor`       |
-| `uint16x4_t __riscv_pxor_u16x4(uint16x4_t rs1, uint16x4_t rs2);` | `xor`       |
-| `int32x2_t __riscv_pxor_i32x2(int32x2_t rs1, int32x2_t rs2);`    | `xor`       |
-| `uint32x2_t __riscv_pxor_u32x2(uint32x2_t rs1, uint32x2_t rs2);` | `xor`       |
-| `int8x8_t __riscv_pnot_i8x8(int8x8_t rs1);`                      | `not`       |
-| `uint8x8_t __riscv_pnot_u8x8(uint8x8_t rs1);`                    | `not`       |
-| `int16x4_t __riscv_pnot_i16x4(int16x4_t rs1);`                   | `not`       |
-| `uint16x4_t __riscv_pnot_u16x4(uint16x4_t rs1);`                 | `not`       |
-| `int32x2_t __riscv_pnot_i32x2(int32x2_t rs1);`                   | `not`       |
-| `uint32x2_t __riscv_pnot_u32x2(uint32x2_t rs1);`                 | `not`       |
+| Prototype                                                        | Instruction                    |
+|------------------------------------------------------------------|--------------------------------|
+| `int8x8_t __riscv_pand_i8x8(int8x8_t rs1, int8x8_t rs2);`        | `and`(RV64), `and`+`and`(RV32) |
+| `uint8x8_t __riscv_pand_u8x8(uint8x8_t rs1, uint8x8_t rs2);`     | `and`(RV64), `and`+`and`(RV32) |
+| `int16x4_t __riscv_pand_i16x4(int16x4_t rs1, int16x4_t rs2);`    | `and`(RV64), `and`+`and`(RV32) |
+| `uint16x4_t __riscv_pand_u16x4(uint16x4_t rs1, uint16x4_t rs2);` | `and`(RV64), `and`+`and`(RV32) |
+| `int32x2_t __riscv_pand_i32x2(int32x2_t rs1, int32x2_t rs2);`    | `and`(RV64), `and`+`and`(RV32) |
+| `uint32x2_t __riscv_pand_u32x2(uint32x2_t rs1, uint32x2_t rs2);` | `and`(RV64), `and`+`and`(RV32) |
+| `int8x8_t __riscv_por_i8x8(int8x8_t rs1, int8x8_t rs2);`         | `or`(RV64), `or`+`or`(RV32)    |
+| `uint8x8_t __riscv_por_u8x8(uint8x8_t rs1, uint8x8_t rs2);`      | `or`(RV64), `or`+`or`(RV32)    |
+| `int16x4_t __riscv_por_i16x4(int16x4_t rs1, int16x4_t rs2);`     | `or`(RV64), `or`+`or`(RV32)    |
+| `uint16x4_t __riscv_por_u16x4(uint16x4_t rs1, uint16x4_t rs2);`  | `or`(RV64), `or`+`or`(RV32)    |
+| `int32x2_t __riscv_por_i32x2(int32x2_t rs1, int32x2_t rs2);`     | `or`(RV64), `or`+`or`(RV32)    |
+| `uint32x2_t __riscv_por_u32x2(uint32x2_t rs1, uint32x2_t rs2);`  | `or`(RV64), `or`+`or`(RV32)    |
+| `int8x8_t __riscv_pxor_i8x8(int8x8_t rs1, int8x8_t rs2);`        | `xor`(RV64), `xor`+`xor`(RV32) |
+| `uint8x8_t __riscv_pxor_u8x8(uint8x8_t rs1, uint8x8_t rs2);`     | `xor`(RV64), `xor`+`xor`(RV32) |
+| `int16x4_t __riscv_pxor_i16x4(int16x4_t rs1, int16x4_t rs2);`    | `xor`(RV64), `xor`+`xor`(RV32) |
+| `uint16x4_t __riscv_pxor_u16x4(uint16x4_t rs1, uint16x4_t rs2);` | `xor`(RV64), `xor`+`xor`(RV32) |
+| `int32x2_t __riscv_pxor_i32x2(int32x2_t rs1, int32x2_t rs2);`    | `xor`(RV64), `xor`+`xor`(RV32) |
+| `uint32x2_t __riscv_pxor_u32x2(uint32x2_t rs1, uint32x2_t rs2);` | `xor`(RV64), `xor`+`xor`(RV32) |
+| `int8x8_t __riscv_pnot_i8x8(int8x8_t rs1);`                      | `not`(RV64), `not`+`not`(RV32) |
+| `uint8x8_t __riscv_pnot_u8x8(uint8x8_t rs1);`                    | `not`(RV64), `not`+`not`(RV32) |
+| `int16x4_t __riscv_pnot_i16x4(int16x4_t rs1);`                   | `not`(RV64), `not`+`not`(RV32) |
+| `uint16x4_t __riscv_pnot_u16x4(uint16x4_t rs1);`                 | `not`(RV64), `not`+`not`(RV32) |
+| `int32x2_t __riscv_pnot_i32x2(int32x2_t rs1);`                   | `not`(RV64), `not`+`not`(RV32) |
+| `uint32x2_t __riscv_pnot_u32x2(uint32x2_t rs1);`                 | `not`(RV64), `not`+`not`(RV32) |
 
 ### Packed Widening Addition and Subtraction
 
