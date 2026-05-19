@@ -1185,12 +1185,12 @@ These are convenience functions to allow bitwise and/or/xor/not on packed vector
 
 ### Packed Widening Shift
 
-| Prototype                                                           | Instruction                                                                                        |
-|---------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
-| `uint16x4_t __riscv_pwsll_s_u16x4(uint8x4_t rs1, unsigned shamt);`  | `pwslli.b`, `pwsll.bs`(RV32), `zip8p`+`pslli.h`, `zip8p`+`psll.hs`(RV64)                           |
-| `uint32x2_t __riscv_pwsll_s_u32x2(uint16x2_t rs1, unsigned shamt);` | `pwslli.h`, `pwsll.hs`(RV32), `zip16p`+`pslli.w`, `zip16p`+`psll.ws`(RV64)                         |
-| `int16x4_t __riscv_pwsla_s_i16x4(int8x4_t rs1, unsigned shamt);`    | `pwslai.b`, `pwsla.bs`(RV32), `zip8p`+`psext.h.b`+`pslli.h`, `zip8p`+`psext.h.b`+`psll.hs`(RV64)   |
-| `int32x2_t __riscv_pwsla_s_i32x2(int16x2_t rs1, unsigned shamt);`   | `pwslai.h`, `pwsla.hs`(RV32), `zip16p`+`psext.w.h`+`pslli.w`, `zip16p`+`psext.w.h`+`psll.ws`(RV64) |
+| Prototype                                                           | Instruction                                                                                                      |
+|---------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
+| `uint16x4_t __riscv_pwsll_s_u16x4(uint8x4_t rs1, unsigned shamt);`  | `pwslli.b`, `pwsll.bs`(RV32), `pwcvtu.b`+`pslli.h`, `pwcvtu.b`+`psll.hs`(RV64)                                   |
+| `uint32x2_t __riscv_pwsll_s_u32x2(uint16x2_t rs1, unsigned shamt);` | `pwslli.h`, `pwsll.hs`(RV32), `pwcvtu.h`+`pslli.w`, `pwcvtu.h`+`psll.ws`(RV64)                                   |
+| `int16x4_t __riscv_pwsla_s_i16x4(int8x4_t rs1, unsigned shamt);`    | `pwslai.b`, `pwsla.bs`(RV32), `pwcvth.b`+`psrai.h`, `pwcvth.b`+`pslli.h`, `pwcvtu.b`+`psext.h.b`+`psll.hs`(RV64) |
+| `int32x2_t __riscv_pwsla_s_i32x2(int16x2_t rs1, unsigned shamt);`   | `pwslai.h`, `pwsla.hs`(RV32), `pwcvth.h`+`psrai.w`, `pwcvth.h`+`pslli.w`, `pwcvtu.h`+`psext.w.h`+`psll.ws`(RV64) |
 
 ### Packed Narrowing Shift
 
