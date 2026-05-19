@@ -639,11 +639,11 @@ Requires 2 instructions on RV32.
 | `int64_t __riscv_pm2addasu_i32x2(int64_t rd, int32x2_t rs1, uint32x2_t rs2);`       | `pm2addasu.w`(RV64), `wmaccsu`+`wmaccsu`(RV32)                                     |
 | `int64_t __riscv_pmqr2add_i32x2(int32x2_t rs1, int32x2_t rs2);`                     | `pmqr2add.w`(RV64), `mqrwacc`(rd_p=x0)+`mqrwacc`(RV32)                             |
 | `int64_t __riscv_pmqr2adda_i32x2(int64_t rd, int32x2_t rs1, int32x2_t rs2);`        | `pmqr2adda.w`(RV64), `mqrwacc`+`mqrwacc`(RV32)                                     |
-| `int64_t __riscv_pm4add_i16x4(int16x4_t rs1, int16x4_t rs2);`                       | `pm4add.h`(RV64), `pwmul.h`+`pwmul.h`+`wadda`(rd_p=x0)+`wadda`(RV32)               |
+| `int64_t __riscv_pm4add_i16x4(int16x4_t rs1, int16x4_t rs2);`                       | `pm4add.h`(RV64), `pwmul.h`+`pwmul.h`+`wadd`+`wadda`(RV32)                         |
 | `int64_t __riscv_pm4adda_i16x4(int64_t rd, int16x4_t rs1, int16x4_t rs2);`          | `pm4adda.h`(RV64), `pwmul.h`+`pwmul.h`+`wadda`+`wadda`(RV32)                       |
-| `uint64_t __riscv_pm4addu_u16x4(uint16x4_t rs1, uint16x4_t rs2);`                   | `pm4addu.h`(RV64), `pwmulu.h`+`pwmulu.h`+`waddau`(rd_p=x0)+`waddau`(RV32)          |
+| `uint64_t __riscv_pm4addu_u16x4(uint16x4_t rs1, uint16x4_t rs2);`                   | `pm4addu.h`(RV64), `pwmulu.h`+`pwmulu.h`+`waddu`+`waddau`(RV32)                    |
 | `uint64_t __riscv_pm4addau_u16x4(uint64_t rd, uint16x4_t rs1, uint16x4_t rs2);`     | `pm4addau.h`(RV64), `pwmulu.h`+`pwmulu.h`+`waddau`+`waddau`(RV32)                  |
-| `int64_t __riscv_pm4addsu_i16x4(int16x4_t rs1, uint16x4_t rs2);`                    | `pm4addsu.h`(RV64), `pwmulsu.h`+`pwmulsu.h`+`wadda`(rd_p=x0)+`wadda`(RV32)         |
+| `int64_t __riscv_pm4addsu_i16x4(int16x4_t rs1, uint16x4_t rs2);`                    | `pm4addsu.h`(RV64), `pwmulsu.h`+`pwmulsu.h`+`wadd`+`wadda`(RV32)                   |
 | `int64_t __riscv_pm4addasu_i16x4(int64_t rd, int16x4_t rs1, uint16x4_t rs2);`       | `pm4addasu.h`(RV64), `pwmulsu.h`+`pwmulsu.h`+`wadda`+`wadda`(RV32)                 |
 
 ### Packed Exchanged Addition and Subtraction
