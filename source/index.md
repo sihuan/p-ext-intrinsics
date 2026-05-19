@@ -1168,11 +1168,11 @@ These are convenience functions to allow bitwise and/or/xor/not on packed vector
 
 #### 32-bit
 
-| Prototype                                                                          | Instruction                                        |
-|------------------------------------------------------------------------------------|----------------------------------------------------|
-| `int32x2_t __riscv_pwmacc_i32x2(int32x2_t rd, int16x2_t rs1, int16x2_t rs2);`      | `pwmacc.h`(RV32), `zip16p`+`pmacc.w.h01`(RV64)     |
-| `uint32x2_t __riscv_pwmaccu_u32x2(uint32x2_t rd, uint16x2_t rs1, uint16x2_t rs2);` | `pwmaccu.h`(RV32), `zip16p`+`pmaccu.w.h01`(RV64)   |
-| `int32x2_t __riscv_pwmaccsu_u32x2(int32x2_t rd, int16x2_t rs1, uint16x2_t rs2);`   | `pwmaccsu.h`(RV32), `zip16p`+`pmaccsu.w.h01`(RV64) |
+| Prototype                                                                          | Instruction                                                              |
+|------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
+| `int32x2_t __riscv_pwmacc_i32x2(int32x2_t rd, int16x2_t rs1, int16x2_t rs2);`      | `pwmacc.h`(RV32), `zip16p`+`pmacc.w.h01`(RV64)                           |
+| `uint32x2_t __riscv_pwmaccu_u32x2(uint32x2_t rd, uint16x2_t rs1, uint16x2_t rs2);` | `pwmaccu.h`(RV32), `zip16p`+`pmaccu.w.h01`(RV64)                         |
+| `int32x2_t __riscv_pwmaccsu_i32x2(int32x2_t rd, int16x2_t rs1, uint16x2_t rs2);`   | `pwmaccsu.h`(RV32), `pwcvtu.h`+`pwcvtu.h`+`zip16p`+`pmaccsu.w.h00`(RV64) |
 
 ### Packed "Q-format" Multiply with Widening Accumulate
 
