@@ -597,54 +597,54 @@ Requires 2 instructions on RV32.
 
 #### 64-bit
 
-| Prototype                                                                           | Instruction                                                                        |
-|-------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
-| `int32x2_t __riscv_pm4add_i8x8(int8x8_t rs1, int8x8_t rs2);`                        | `pm4add.b`(RV64), `pm4add.b`+`pm4add.b`(RV32)                                      |
-| `int32x2_t __riscv_pm2add_i16x4(int16x4_t rs1, int16x4_t rs2);`                     | `pm2add.h`(RV64), `pm2add.h`+`pm2add.h`(RV32)                                      |
-| `int32x2_t __riscv_pm4adda_i8x8(int32x2_t rd, int8x8_t rs1, int8x8_t rs2);`         | `pm4adda.b`(RV64), `pm4adda.b`+`pm4adda.b`(RV32)                                   |
-| `int32x2_t __riscv_pm2adda_i16x4(int32x2_t rd, int16x4_t rs1, int16x4_t rs2);`      | `pm2adda.h`(RV64), `pm2adda.h`+`pm2adda.h`(RV32)                                   |
-| `int32x2_t __riscv_pm2add_x_i16x4(int16x4_t rs1, int16x4_t rs2);`                   | `pm2add.hx`(RV64), `pm2add.hx`+`pm2add.hx`(RV32)                                   |
-| `int32x2_t __riscv_pm2adda_x_i16x4(int32x2_t rd, int16x4_t rs1, int16x4_t rs2);`    | `pm2adda.hx`(RV64), `pm2adda.hx`+`pm2adda.hx`(RV32)                                |
-| `uint32x2_t __riscv_pm4addu_u8x8(uint8x8_t rs1, uint8x8_t rs2);`                    | `pm4addu.b`(RV64), `pm4addu.b`+`pm4addu.b`(RV32)                                   |
-| `uint32x2_t __riscv_pm2addu_u16x4(uint16x4_t rs1, uint16x4_t rs2);`                 | `pm2addu.h`(RV64), `pm2addu.h`+`pm2addu.h`(RV32)                                   |
-| `uint32x2_t __riscv_pm4addau_u8x8(uint32x2_t rd, uint8x8_t rs1, uint8x8_t rs2);`    | `pm4addau.b`(RV64), `pm4addau.b`+`pm4addau.b`(RV32)                                |
-| `uint32x2_t __riscv_pm2addau_u16x4(uint32x2_t rd, uint16x4_t rs1, uint16x4_t rs2);` | `pm2addau.h`(RV64), `pm2addau.h`+`pm2addau.h`(RV32)                                |
-| `int32x2_t __riscv_pmq2add_i16x4(int16x4_t rs1, int16x4_t rs2);`                    | `pmq2add.h`(RV64), `pmq2add.h`+`pmq2add.h`(RV32)                                   |
-| `int32x2_t __riscv_pmqr2add_i16x4(int16x4_t rs1, int16x4_t rs2);`                   | `pmqr2add.h`(RV64), `pmqr2add.h`+`pmqr2add.h`(RV32)                                |
-| `int32x2_t __riscv_pmq2adda_i16x4(int32x2_t rd, int16x4_t rs1, int16x4_t rs2);`     | `pmq2adda.h`(RV64), `pmq2adda.h`+`pmq2adda.h`(RV32)                                |
-| `int32x2_t __riscv_pmqr2adda_i16x4(int32x2_t rd, int16x4_t rs1, int16x4_t rs2);`    | `pmqr2adda.h`(RV64), `pmqr2adda.h`+`pmqr2adda.h`(RV32)                             |
-| `int32x2_t __riscv_pm2sadd_i16x4(int16x4_t rs1, int16x4_t rs2);`                    | `pm2sadd.h`(RV64), `pm2sadd.h`+`pm2sadd.h`(RV32)                                   |
-| `int32x2_t __riscv_pm2sadd_x_i16x4(int16x4_t rs1, int16x4_t rs2);`                  | `pm2sadd.hx`(RV64), `pm2sadd.hx`+`pm2sadd.hx`(RV32)                                |
-| `int32x2_t __riscv_pm2sub_i16x4(int16x4_t rs1, int16x4_t rs2);`                     | `pm2sub.h`(RV64), `pm2sub.h`+`pm2sub.h`(RV32)                                      |
-| `int32x2_t __riscv_pm2suba_i16x4(int32x2_t rd, int16x4_t rs1, int16x4_t rs2);`      | `pm2suba.h`(RV64), `pm2suba.h`+`pm2suba.h`(RV32)                                   |
-| `int32x2_t __riscv_pm2sub_x_i16x4(int16x4_t rs1, int16x4_t rs2);`                   | `pm2sub.hx`(RV64), `pm2sub.hx`+`pm2sub.hx`(RV32)                                   |
-| `int32x2_t __riscv_pm2suba_x_i16x4(int32x2_t rd, int16x4_t rs1, int16x4_t rs2);`    | `pm2suba.hx`(RV64), `pm2suba.hx`+`pm2suba.hx`(RV32)                                |
-| `int32x2_t __riscv_pm4addsu_i8x8(int8x8_t rs1, uint8x8_t rs2);`                     | `pm4addsu.b`(RV64), `pm4addsu.b`+`pm4addsu.b`(RV32)                                |
-| `int32x2_t __riscv_pm2addsu_i16x4(int16x4_t rs1, uint16x4_t rs2);`                  | `pm2addsu.h`(RV64), `pm2addsu.h`+`pm2addsu.h`(RV32)                                |
-| `int32x2_t __riscv_pm4addasu_i8x8(int32x2_t rd, int8x8_t rs1, uint8x8_t rs2);`      | `pm4addasu.b`(RV64), `pm4addasu.b`+`pm4addasu.b`(RV32)                             |
-| `int32x2_t __riscv_pm2addasu_i16x4(int32x2_t rd, int16x4_t rs1, uint16x4_t rs2);`   | `pm2addasu.h`(RV64), `pm2addasu.h`+`pm2addasu.h`(RV32)                             |
-| `int64_t __riscv_pm2add_i32x2(int32x2_t rs1, int32x2_t rs2);`                       | `pm2add.w`(RV64), `wmul`+`wmacc`(RV32)                                             |
-| `int64_t __riscv_pm2adda_i32x2(int64_t rd, int32x2_t rs1, int32x2_t rs2);`          | `pm2adda.w`(RV64), `wmacc`+`wmacc`(RV32)                                           |
-| `int64_t __riscv_pm2add_x_i32x2(int32x2_t rs1, int32x2_t rs2);`                     | `pm2add.wx`(RV64), `wmul`+`wmacc`(RV32)                                            |
-| `int64_t __riscv_pm2adda_x_i32x2(int64_t rd, int32x2_t rs1, int32x2_t rs2);`        | `pm2adda.wx`(RV64), `wmacc`+`wmacc`(RV32)                                          |
-| `uint64_t __riscv_pm2addu_u32x2(uint32x2_t rs1, uint32x2_t rs2);`                   | `pm2addu.w`(RV64), `wmulu`+`wmaccu`(RV32)                                          |
-| `uint64_t __riscv_pm2addau_u32x2(uint64_t rd, uint32x2_t rs1, uint32x2_t rs2);`     | `pm2addau.w`(RV64), `wmaccu`+`wmaccu`(RV32)                                        |
-| `int64_t __riscv_pmq2add_i32x2(int32x2_t rs1, int32x2_t rs2);`                      | `pmq2add.w`(RV64), `mqwacc`(rd_p=x0)+`mqwacc`(RV32)                                |
-| `int64_t __riscv_pmq2adda_i32x2(int64_t rd, int32x2_t rs1, int32x2_t rs2);`         | `pmq2adda.w`(RV64), `mqwacc`+`mqwacc`(RV32)                                        |
-| `int64_t __riscv_pm2sub_i32x2(int32x2_t rs1, int32x2_t rs2);`                       | `pm2sub.w`(RV64), `wmul`+`wmul`+`subd`(RV32)                                       |
-| `int64_t __riscv_pm2suba_i32x2(int64_t rd, int32x2_t rs1, int32x2_t rs2);`          | `pm2suba.w`(RV64), `wmacc`+`wmul`+`subd`(RV32)                                     |
-| `int64_t __riscv_pm2sub_x_i32x2(int32x2_t rs1, int32x2_t rs2);`                     | `pm2sub.wx`(RV64), `wmul`+`wmul`+`subd`(RV32)                                      |
-| `int64_t __riscv_pm2suba_x_i32x2(int64_t rd, int32x2_t rs1, int32x2_t rs2);`        | `pm2suba.wx`(RV64), `wmacc`+`wmul`+`subd`(RV32)                                    |
-| `int64_t __riscv_pm2addsu_i32x2(int32x2_t rs1, uint32x2_t rs2);`                    | `pm2addsu.w`(RV64), `wmulsu`+`wmaccsu`(RV32)                                       |
-| `int64_t __riscv_pm2addasu_i32x2(int64_t rd, int32x2_t rs1, uint32x2_t rs2);`       | `pm2addasu.w`(RV64), `wmaccsu`+`wmaccsu`(RV32)                                     |
-| `int64_t __riscv_pmqr2add_i32x2(int32x2_t rs1, int32x2_t rs2);`                     | `pmqr2add.w`(RV64), `mqrwacc`(rd_p=x0)+`mqrwacc`(RV32)                             |
-| `int64_t __riscv_pmqr2adda_i32x2(int64_t rd, int32x2_t rs1, int32x2_t rs2);`        | `pmqr2adda.w`(RV64), `mqrwacc`+`mqrwacc`(RV32)                                     |
-| `int64_t __riscv_pm4add_i16x4(int16x4_t rs1, int16x4_t rs2);`                       | `pm4add.h`(RV64), `pwmul.h`+`pwmul.h`+`wadd`+`wadda`(RV32)                         |
-| `int64_t __riscv_pm4adda_i16x4(int64_t rd, int16x4_t rs1, int16x4_t rs2);`          | `pm4adda.h`(RV64), `pwmul.h`+`pwmul.h`+`wadda`+`wadda`(RV32)                       |
-| `uint64_t __riscv_pm4addu_u16x4(uint16x4_t rs1, uint16x4_t rs2);`                   | `pm4addu.h`(RV64), `pwmulu.h`+`pwmulu.h`+`waddu`+`waddau`(RV32)                    |
-| `uint64_t __riscv_pm4addau_u16x4(uint64_t rd, uint16x4_t rs1, uint16x4_t rs2);`     | `pm4addau.h`(RV64), `pwmulu.h`+`pwmulu.h`+`waddau`+`waddau`(RV32)                  |
-| `int64_t __riscv_pm4addsu_i16x4(int16x4_t rs1, uint16x4_t rs2);`                    | `pm4addsu.h`(RV64), `pwmulsu.h`+`pwmulsu.h`+`wadd`+`wadda`(RV32)                   |
-| `int64_t __riscv_pm4addasu_i16x4(int64_t rd, int16x4_t rs1, uint16x4_t rs2);`       | `pm4addasu.h`(RV64), `pwmulsu.h`+`pwmulsu.h`+`wadda`+`wadda`(RV32)                 |
+| Prototype                                                                           | Instruction                                              |
+|-------------------------------------------------------------------------------------|----------------------------------------------------------|
+| `int32x2_t __riscv_pm4add_i8x8(int8x8_t rs1, int8x8_t rs2);`                        | `pm4add.b`(RV64), `pm4add.b`+`pm4add.b`(RV32)            |
+| `int32x2_t __riscv_pm2add_i16x4(int16x4_t rs1, int16x4_t rs2);`                     | `pm2add.h`(RV64), `pm2add.h`+`pm2add.h`(RV32)            |
+| `int32x2_t __riscv_pm4adda_i8x8(int32x2_t rd, int8x8_t rs1, int8x8_t rs2);`         | `pm4adda.b`(RV64), `pm4adda.b`+`pm4adda.b`(RV32)         |
+| `int32x2_t __riscv_pm2adda_i16x4(int32x2_t rd, int16x4_t rs1, int16x4_t rs2);`      | `pm2adda.h`(RV64), `pm2adda.h`+`pm2adda.h`(RV32)         |
+| `int32x2_t __riscv_pm2add_x_i16x4(int16x4_t rs1, int16x4_t rs2);`                   | `pm2add.hx`(RV64), `pm2add.hx`+`pm2add.hx`(RV32)         |
+| `int32x2_t __riscv_pm2adda_x_i16x4(int32x2_t rd, int16x4_t rs1, int16x4_t rs2);`    | `pm2adda.hx`(RV64), `pm2adda.hx`+`pm2adda.hx`(RV32)      |
+| `uint32x2_t __riscv_pm4addu_u8x8(uint8x8_t rs1, uint8x8_t rs2);`                    | `pm4addu.b`(RV64), `pm4addu.b`+`pm4addu.b`(RV32)         |
+| `uint32x2_t __riscv_pm2addu_u16x4(uint16x4_t rs1, uint16x4_t rs2);`                 | `pm2addu.h`(RV64), `pm2addu.h`+`pm2addu.h`(RV32)         |
+| `uint32x2_t __riscv_pm4addau_u8x8(uint32x2_t rd, uint8x8_t rs1, uint8x8_t rs2);`    | `pm4addau.b`(RV64), `pm4addau.b`+`pm4addau.b`(RV32)      |
+| `uint32x2_t __riscv_pm2addau_u16x4(uint32x2_t rd, uint16x4_t rs1, uint16x4_t rs2);` | `pm2addau.h`(RV64), `pm2addau.h`+`pm2addau.h`(RV32)      |
+| `int32x2_t __riscv_pmq2add_i16x4(int16x4_t rs1, int16x4_t rs2);`                    | `pmq2add.h`(RV64), `pmq2add.h`+`pmq2add.h`(RV32)         |
+| `int32x2_t __riscv_pmqr2add_i16x4(int16x4_t rs1, int16x4_t rs2);`                   | `pmqr2add.h`(RV64), `pmqr2add.h`+`pmqr2add.h`(RV32)      |
+| `int32x2_t __riscv_pmq2adda_i16x4(int32x2_t rd, int16x4_t rs1, int16x4_t rs2);`     | `pmq2adda.h`(RV64), `pmq2adda.h`+`pmq2adda.h`(RV32)      |
+| `int32x2_t __riscv_pmqr2adda_i16x4(int32x2_t rd, int16x4_t rs1, int16x4_t rs2);`    | `pmqr2adda.h`(RV64), `pmqr2adda.h`+`pmqr2adda.h`(RV32)   |
+| `int32x2_t __riscv_pm2sadd_i16x4(int16x4_t rs1, int16x4_t rs2);`                    | `pm2sadd.h`(RV64), `pm2sadd.h`+`pm2sadd.h`(RV32)         |
+| `int32x2_t __riscv_pm2sadd_x_i16x4(int16x4_t rs1, int16x4_t rs2);`                  | `pm2sadd.hx`(RV64), `pm2sadd.hx`+`pm2sadd.hx`(RV32)      |
+| `int32x2_t __riscv_pm2sub_i16x4(int16x4_t rs1, int16x4_t rs2);`                     | `pm2sub.h`(RV64), `pm2sub.h`+`pm2sub.h`(RV32)            |
+| `int32x2_t __riscv_pm2suba_i16x4(int32x2_t rd, int16x4_t rs1, int16x4_t rs2);`      | `pm2suba.h`(RV64), `pm2suba.h`+`pm2suba.h`(RV32)         |
+| `int32x2_t __riscv_pm2sub_x_i16x4(int16x4_t rs1, int16x4_t rs2);`                   | `pm2sub.hx`(RV64), `pm2sub.hx`+`pm2sub.hx`(RV32)         |
+| `int32x2_t __riscv_pm2suba_x_i16x4(int32x2_t rd, int16x4_t rs1, int16x4_t rs2);`    | `pm2suba.hx`(RV64), `pm2suba.hx`+`pm2suba.hx`(RV32)      |
+| `int32x2_t __riscv_pm4addsu_i8x8(int8x8_t rs1, uint8x8_t rs2);`                     | `pm4addsu.b`(RV64), `pm4addsu.b`+`pm4addsu.b`(RV32)      |
+| `int32x2_t __riscv_pm2addsu_i16x4(int16x4_t rs1, uint16x4_t rs2);`                  | `pm2addsu.h`(RV64), `pm2addsu.h`+`pm2addsu.h`(RV32)      |
+| `int32x2_t __riscv_pm4addasu_i8x8(int32x2_t rd, int8x8_t rs1, uint8x8_t rs2);`      | `pm4addasu.b`(RV64), `pm4addasu.b`+`pm4addasu.b`(RV32)   |
+| `int32x2_t __riscv_pm2addasu_i16x4(int32x2_t rd, int16x4_t rs1, uint16x4_t rs2);`   | `pm2addasu.h`(RV64), `pm2addasu.h`+`pm2addasu.h`(RV32)   |
+| `int64_t __riscv_pm2add_i32x2(int32x2_t rs1, int32x2_t rs2);`                       | `pm2add.w`(RV64), `wmul`+`wmacc`(RV32)                   |
+| `int64_t __riscv_pm2adda_i32x2(int64_t rd, int32x2_t rs1, int32x2_t rs2);`          | `pm2adda.w`(RV64), `wmacc`+`wmacc`(RV32)                 |
+| `int64_t __riscv_pm2add_x_i32x2(int32x2_t rs1, int32x2_t rs2);`                     | `pm2add.wx`(RV64), `wmul`+`wmacc`(RV32)                  |
+| `int64_t __riscv_pm2adda_x_i32x2(int64_t rd, int32x2_t rs1, int32x2_t rs2);`        | `pm2adda.wx`(RV64), `wmacc`+`wmacc`(RV32)                |
+| `uint64_t __riscv_pm2addu_u32x2(uint32x2_t rs1, uint32x2_t rs2);`                   | `pm2addu.w`(RV64), `wmulu`+`wmaccu`(RV32)                |
+| `uint64_t __riscv_pm2addau_u32x2(uint64_t rd, uint32x2_t rs1, uint32x2_t rs2);`     | `pm2addau.w`(RV64), `wmaccu`+`wmaccu`(RV32)              |
+| `int64_t __riscv_pmq2add_i32x2(int32x2_t rs1, int32x2_t rs2);`                      | `pmq2add.w`(RV64), `mqwacc`(rd_p=x0)+`mqwacc`(RV32)      |
+| `int64_t __riscv_pmq2adda_i32x2(int64_t rd, int32x2_t rs1, int32x2_t rs2);`         | `pmq2adda.w`(RV64), `mqwacc`+`mqwacc`(RV32)              |
+| `int64_t __riscv_pm2sub_i32x2(int32x2_t rs1, int32x2_t rs2);`                       | `pm2sub.w`(RV64), `wmul`+`wmul`+`subd`(RV32)             |
+| `int64_t __riscv_pm2suba_i32x2(int64_t rd, int32x2_t rs1, int32x2_t rs2);`          | `pm2suba.w`(RV64), `wmacc`+`wmul`+`subd`(RV32)           |
+| `int64_t __riscv_pm2sub_x_i32x2(int32x2_t rs1, int32x2_t rs2);`                     | `pm2sub.wx`(RV64), `wmul`+`wmul`+`subd`(RV32)            |
+| `int64_t __riscv_pm2suba_x_i32x2(int64_t rd, int32x2_t rs1, int32x2_t rs2);`        | `pm2suba.wx`(RV64), `wmacc`+`wmul`+`subd`(RV32)          |
+| `int64_t __riscv_pm2addsu_i32x2(int32x2_t rs1, uint32x2_t rs2);`                    | `pm2addsu.w`(RV64), `wmulsu`+`wmaccsu`(RV32)             |
+| `int64_t __riscv_pm2addasu_i32x2(int64_t rd, int32x2_t rs1, uint32x2_t rs2);`       | `pm2addasu.w`(RV64), `wmaccsu`+`wmaccsu`(RV32)           |
+| `int64_t __riscv_pmqr2add_i32x2(int32x2_t rs1, int32x2_t rs2);`                     | `pmqr2add.w`(RV64), `mqrwacc`(rd_p=x0)+`mqrwacc`(RV32)   |
+| `int64_t __riscv_pmqr2adda_i32x2(int64_t rd, int32x2_t rs1, int32x2_t rs2);`        | `pmqr2adda.w`(RV64), `mqrwacc`+`mqrwacc`(RV32)           |
+| `int64_t __riscv_pm4add_i16x4(int16x4_t rs1, int16x4_t rs2);`                       | `pm4add.h`(RV64), `pm2wadd.h`+`pm2wadda.h`(RV32)         |
+| `int64_t __riscv_pm4adda_i16x4(int64_t rd, int16x4_t rs1, int16x4_t rs2);`          | `pm4adda.h`(RV64), `pm2wadda.h`+`pm2wadda.h`(RV32)       |
+| `uint64_t __riscv_pm4addu_u16x4(uint16x4_t rs1, uint16x4_t rs2);`                   | `pm4addu.h`(RV64), `pm2waddu.h`+`pm2waddau.h`(RV32)      |
+| `uint64_t __riscv_pm4addau_u16x4(uint64_t rd, uint16x4_t rs1, uint16x4_t rs2);`     | `pm4addau.h`(RV64), `pm2waddau.h`+`pm2waddau.h`(RV32)    |
+| `int64_t __riscv_pm4addsu_i16x4(int16x4_t rs1, uint16x4_t rs2);`                    | `pm4addsu.h`(RV64), `pm2waddsu.h`+`pm2waddasu.h`(RV32)   |
+| `int64_t __riscv_pm4addasu_i16x4(int64_t rd, int16x4_t rs1, uint16x4_t rs2);`       | `pm4addasu.h`(RV64), `pm2waddasu.h`+`pm2waddasu.h`(RV32) |
 
 ### Packed Exchanged Addition and Subtraction
 
