@@ -1123,18 +1123,18 @@ These are convenience functions to allow bitwise and/or/xor/not on packed vector
 
 ### Packed Widening Addition and Subtraction
 
-### 32-bit (RV32 Only)
+### 32-bit
 
-| Prototype                                                          | Instruction     |
-|--------------------------------------------------------------------|-----------------|
-| `int16x4_t __riscv_pwadd_i16x4(int8x4_t rs1, int8x4_t rs2);`       | `pwadd.b`       |
-| `int32x2_t __riscv_pwadd_i32x2(int16x2_t rs1, int16x2_t rs2);`     | `pwadd.h`       |
-| `uint16x4_t __riscv_pwaddu_u16x4(uint8x4_t rs1, uint8x4_t rs2);`   | `pwaddu.b`      |
-| `uint32x2_t __riscv_pwaddu_u32x2(uint16x2_t rs1, uint16x2_t rs2);` | `pwaddu.h`      |
-| `int16x4_t __riscv_pwsub_i16x4(int8x4_t rs1, int8x4_t rs2);`       | `pwsub.b`       |
-| `int32x2_t __riscv_pwsub_i32x2(int16x2_t rs1, int16x2_t rs2);`     | `pwsub.h`       |
-| `uint16x4_t __riscv_pwsubu_u16x4(uint8x4_t rs1, uint8x4_t rs2);`   | `pwsubu.b`      |
-| `uint32x2_t __riscv_pwsubu_u32x2(uint16x2_t rs1, uint16x2_t rs2);` | `pwsubu.h`      |
+| Prototype                                                          | Instruction                                                   |
+|--------------------------------------------------------------------|---------------------------------------------------------------|
+| `int16x4_t __riscv_pwadd_i16x4(int8x4_t rs1, int8x4_t rs2);`       | `pwadd.b`(RV32), `zip8p`+`psrai.h`+`psext.h.b`+`padd.h`(RV64) |
+| `int32x2_t __riscv_pwadd_i32x2(int16x2_t rs1, int16x2_t rs2);`     | `pwadd.h`(RV32), `pli.h`+`zip16p`+`pm2add.h`(RV64)            |
+| `uint16x4_t __riscv_pwaddu_u16x4(uint8x4_t rs1, uint8x4_t rs2);`   | `pwaddu.b`(RV32), `pwcvtu.b`+`pwcvtu.b`+`padd.h`(RV64)        |
+| `uint32x2_t __riscv_pwaddu_u32x2(uint16x2_t rs1, uint16x2_t rs2);` | `pwaddu.h`(RV32), `pli.h`+`zip16p`+`pm2addu.h`(RV64)          |
+| `int16x4_t __riscv_pwsub_i16x4(int8x4_t rs1, int8x4_t rs2);`       | `pwsub.b`(RV32), `zip8p`+`psrai.h`+`psext.h.b`+`psub.h`(RV64) |
+| `int32x2_t __riscv_pwsub_i32x2(int16x2_t rs1, int16x2_t rs2);`     | `pwsub.h`(RV32), `pli.h`+`zip16p`+`pm2sub.h`(RV64)            |
+| `uint16x4_t __riscv_pwsubu_u16x4(uint8x4_t rs1, uint8x4_t rs2);`   | `pwsubu.b`(RV32), `pwcvtu.b`+`pwcvtu.b`+`psub.h`(RV64)        |
+| `uint32x2_t __riscv_pwsubu_u32x2(uint16x2_t rs1, uint16x2_t rs2);` | `pwsubu.h`(RV32), `pwcvtu.h`+`pwcvtu.h`+`psub.w`(RV64)        |
 
 ### Packed Widening Addition and Subtraction Accumulate
 
